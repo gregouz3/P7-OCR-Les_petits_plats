@@ -2,8 +2,7 @@ import recipes from "./recipes.js";
 import displayRecipe from "./index.js";
 
 const search = () => {
-  search2(recipes);
-  displayTag(recipes);
+
   const searchUser = document.getElementById("searchInput");
   searchUser.addEventListener("input", (e) => {
     const element = e.target.value.toLowerCase();
@@ -48,12 +47,7 @@ const error = (e) => {
     recipes.forEach((recipe) => {
       displayRecipe(recipe);
     });
-    // console.log(element);
-  } else if (e.target.value.length === 0) {
-    document.getElementById("recipes").innerHTML = "";
-    recipes.forEach((recipe) => {
-      displayRecipe(recipe);
-    });
+    
   }
 };
 
