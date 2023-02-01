@@ -2,7 +2,6 @@ import recipes from "./recipes.js";
 import displayRecipe from "./index.js";
 
 const search = () => {
-
   const searchUser = document.getElementById("searchInput");
   searchUser.addEventListener("input", (e) => {
     const element = e.target.value.toLowerCase();
@@ -58,7 +57,7 @@ const search2 = (tab) => {
   search2ustensils(tab);
 };
 
-const displayTag = (tab) => {
+ const displayTag = (tab) => {
   ingredients(tab);
   appareils(tab);
   ustensils(tab);

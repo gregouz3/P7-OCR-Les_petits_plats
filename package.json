@@ -18,6 +18,7 @@
   "homepage": "https://github.com/gregouz3/de-Fleurac-Gregoire_7_07072021#readme",
   "dependencies": {
     "bootstrap": "^5.0.2",
-    "mdb-ui-kit": "^3.9.0"
+    "mdb-ui-kit": "^3.9.0",
+    "sass": "^1.58.0"
   }
 }

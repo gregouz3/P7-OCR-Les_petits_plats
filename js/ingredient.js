@@ -1,4 +1,4 @@
-class Ingredient {
+export default class Ingredient {
   constructor(data) {
     this.ingredient = data.ingredient;
     this.quantity = data.quantity;
@@ -22,4 +22,3 @@ class Ingredient {
   }
 }
 
-export default Ingredient;

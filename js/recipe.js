@@ -1,6 +1,6 @@
 import Ingredient from "./ingredient.js";
 
-class Recipe {
+export default class Recipe {
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
@@ -44,5 +44,3 @@ class Recipe {
     `;
   }
 }
-
-export default Recipe;
