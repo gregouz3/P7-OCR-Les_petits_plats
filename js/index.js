@@ -14,6 +14,7 @@ const displayRecipes = () => {
   document.getElementById("recipes").innerHTML = "";
   recipes.forEach((recipe) => {
     displayRecipe(recipe);
+    
   });
   displayTags();
 };
