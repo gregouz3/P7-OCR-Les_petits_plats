@@ -1,5 +1,6 @@
 import recipes from "./recipes.js";
 import Recipe from "./recipe.js";
+import selectTag from "./search.js";
 
 const displayRecipe = (recipe) => {
   //console.log(recipes);
@@ -74,6 +75,7 @@ const displayTags = () => {
   displayIngredients();
   displayAppliances();
   displayUstensils();
+  selectTag();
 };
 
 

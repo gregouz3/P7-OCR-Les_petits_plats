@@ -70,6 +70,8 @@ const selectTag = () => {
   tagUst();
 };
 
+export default selectTag;
+
 /*ingredient*****************************************************/
 
 const ingredients = (tab) => {
