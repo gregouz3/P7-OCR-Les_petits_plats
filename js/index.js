@@ -1,6 +1,5 @@
 import recipes from "./recipes.js";
 import Recipe from "./recipe.js";
-import displayTag from "./search.js";
 
 const displayRecipe = (recipe) => {
   //console.log(recipes);
@@ -15,9 +14,8 @@ const displayRecipes = () => {
   recipes.forEach((recipe) => {
     displayRecipe(recipe);
   });
-  displayTag();
 };
 
 displayRecipes();
 
-export default displayRecipe
+export default displayRecipe;

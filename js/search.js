@@ -14,9 +14,9 @@ const search = () => {
     }
     error(e);
   });
-  search2(recipes);
   displayTag(recipes);
-};
+search2(recipes);
+}
 
 const filter1 = (element, recipe, tab) => {
   if (
@@ -48,12 +48,10 @@ const error = (e) => {
     recipes.forEach((recipe) => {
       displayRecipe(recipe);
     });
-    
   }
 };
 
 const search2 = (tab) => {
-  console.log(tab);
   search2ingredients(tab);
   search2appareils(tab);
   search2ustensils(tab);
@@ -63,16 +61,15 @@ const search2 = (tab) => {
   ingredients(tab);
   appareils(tab);
   ustensils(tab);
-  selectTag(tab);
+  selectTag();
 };
 
-const selectTag = (tab) => {
-  tagIngr(tab);
-  tagApp(tab);
-  tagUst(tab);
+const selectTag = () => {
+  tagIngr();
+  tagApp();
+  tagUst();
 };
 
-export default selectTag;
 
 /*ingredient*****************************************************/
 
@@ -93,8 +90,7 @@ const ingredients = (tab) => {
   });
 };
 
-const tagIngr = (tab) => {
-  console.log(tab)
+const tagIngr = () => {
   const ingrsC = document.querySelectorAll(".ingrsC");
   ingrsC.forEach((ingrC) => {
     const ingrCid = ingrC.textContent.toLowerCase().replaceAll(" ", "");
@@ -104,7 +100,7 @@ const tagIngr = (tab) => {
       console.log(document.getElementById(btnIdIngr));
       if (!document.getElementById(btnIdIngr)) {
         console.log(document.getElementById(btnIdIngr));
-
+        ingrC.remove();
         document.getElementById("tags").innerHTML += `
           <button
             type="button"
@@ -125,15 +121,16 @@ const tagIngr = (tab) => {
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
           </button>`;
-        closeTagIngrs(tab);
-        console.log(tab)
+        closeTagIngrs(ingrC);
       }
     });
   });
 };
 
-const closeTagIngrs = (tab) => {
+const closeTagIngrs = (ingrC) => {
   const ingrsX = document.querySelectorAll(".sX");
+  const ingrsCC = document.querySelector(".ingredients");
+
   console.log(ingrsX);
   ingrsX.forEach((ingrX) => {
     console.log(ingrX);
@@ -141,6 +138,7 @@ const closeTagIngrs = (tab) => {
     ingrX.addEventListener("click", () => {
       console.log(btnX);
       document.getElementById(btnX).remove();
+      ingrsCC.prepend(ingrC);
     });
   });
 };
@@ -184,11 +182,12 @@ const search2ingredients = (tab) => {
       uTab.forEach((el) => {
         const ingredient = JSON.stringify(el);
         ingrs.innerHTML += `
-        <li>${ingredient}</li>
+        <li class="ingrsC">${ingredient}</li>
       `;
       });
       search2appareils(ut1ingRecipe);
       search2ustensils(ut1ingRecipe);
+      selectTag(ut1ingRecipe);
     }
   });
 };
@@ -211,22 +210,20 @@ const appareils = (tab) => {
   });
 };
 
-const tagApp = (tab) => {
+const tagApp = () => {
   const appsC = document.querySelectorAll(".appsC");
   appsC.forEach((appC) => {
     const appCid = appC.textContent.toLowerCase().replaceAll(" ", "");
     const btnIdApp = [...appCid].reverse().join("");
-    const textId = "";
-    const tabApp = [];
     appC.addEventListener("click", () => {
-      if (tabApp.length == 0) {
+        appC.remove();
         document.getElementById("tags").innerHTML += `
           <button
             type="button"
             class="btn btn-primary my-3 d-flex align-items-center justify-content-between"
             id=${btnIdApp}
           >
-            <p id=${textId} >${appC.textContent}</p>
+            <p  >${appC.textContent}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -240,23 +237,21 @@ const tagApp = (tab) => {
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
           </button>`;
-        console.log(document.getElementById("btnIdApp"));
-        tabApp.push(document.getElementById("btnIdApp"));
-        console.log(tabApp);
-        closeTagApps(tab);
-      }
+        closeTagApps(appC);
     });
   });
 };
 
-const closeTagApps = (tab) => {
+const closeTagApps = (appC) => {
   const appsX = document.querySelectorAll(".sX");
+  const appsCC = document.querySelector(".appareil");
   console.log(appsX);
   appsX.forEach((appX) => {
     const btnX = [...appX.id].reverse().join("");
     appX.addEventListener("click", () => {
       console.log(btnX);
       document.getElementById(btnX).remove();
+      appsCC.prepend(appC);
     });
   });
 };
@@ -297,11 +292,12 @@ const search2appareils = (tab) => {
       uTab.forEach((el) => {
         const app = JSON.stringify(el);
         apps.innerHTML += `
-        <li>${app}</li>
+        <li class="appsC">${app}</li>
       `;
       });
       search2ingredients(ut1appRecipe);
       search2ustensils(ut1appRecipe);
+      selectTag(ut1appRecipe);
     }
   });
 };
@@ -325,16 +321,13 @@ const ustensils = (tab) => {
     `;
   });
 };
-const tagUst = (tab) => {
+const tagUst = () => {
   const ustsC = document.querySelectorAll(".ustsC");
   ustsC.forEach((ustC) => {
     const ustCid = ustC.textContent.toLowerCase().replaceAll(" ", "");
     const btnIdUst = [...ustCid].reverse().join("");
-    const tabUst = [];
     ustC.addEventListener("click", () => {
-      console.log(document.getElementById(btnIdUst));
-      if (tabUst.length == 0) {
-        console.log(document.getElementById(btnIdUst));
+        ustC.remove();
         document.getElementById("tags").innerHTML += `
         <button
           type="button"
@@ -355,15 +348,15 @@ const tagUst = (tab) => {
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg>
         </button>`;
-        tabUst.push(document.getElementById(btnIdUst));
-        closeTagUsts(tab);
-      }
+        closeTagUsts(ustC);
     });
   });
 };
 
-const closeTagUsts = (tab) => {
+const closeTagUsts = (ustC) => {
   const ustsX = document.querySelectorAll(".sX");
+  const ustsCC = document.querySelector(".ustensiles");
+
   console.log(ustsX);
   ustsX.forEach((ustX) => {
     console.log(ustX);
@@ -371,6 +364,7 @@ const closeTagUsts = (tab) => {
     ustX.addEventListener("click", () => {
       console.log(btnX);
       document.getElementById(btnX).remove();
+      ustsCC.prepend(ustC);
     });
   });
 };
@@ -388,7 +382,6 @@ const search2ustensils = (tab) => {
       document.querySelector(".ingredients").innerHTML = "";
       document.querySelector(".appareil").innerHTML = "";
       document.getElementById("recipes").innerHTML = "";
-
       tab.filter((recipe) => {
         recipe.ustensils.forEach((el) => {
           if (el.toLowerCase().match(element)) {
@@ -409,15 +402,15 @@ const search2ustensils = (tab) => {
       uTab.forEach((el) => {
         const ust = JSON.stringify(el);
         usts.innerHTML += `
-        <li>${ust}</li>
+        <li class="ustsC">${ust}</li>
       `;
       });
       console.log(ut1UstRecipe);
       search2appareils(ut1UstRecipe);
       search2ingredients(ut1UstRecipe);
+      selectTag(ut1UstRecipe);
     }
   });
 };
-
 
 search();
