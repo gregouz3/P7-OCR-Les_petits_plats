@@ -11,11 +11,12 @@ const search = () => {
       recipes.filter((recipe) => filter1(element, recipe, tab));
       search2(tab);
       displayTag(tab);
+
     }
     error(e);
   });
+  search2(recipes);
   displayTag(recipes);
-search2(recipes);
 }
 
 const filter1 = (element, recipe, tab) => {
@@ -38,12 +39,57 @@ const filter1 = (element, recipe, tab) => {
   }
 };
 
+
+
+const filterTag = (tag, tabb) => {
+  const tabbb = [];
+  document.getElementById("recipes").innerHTML = "";
+  tabb.forEach((t => {
+    if (
+      t.name.toLowerCase().match(tag) ||
+      t.description.toLowerCase().match(tag)|| 
+      t.appliance.toLowerCase().match(tag)
+    ) {
+      displayRecipe(t);
+      tabbb.push(t);
+    } else if (
+      !t.name.toLowerCase().match(tag) &&
+      !t.description.toLowerCase().match(tag) &&
+      !t.appliance.toLowerCase().match(tag)
+  
+    ) {
+      t.ingredients.forEach((el) => {
+        if (el.ingredient.toLowerCase().match(tag)) {
+          displayRecipe(t);
+          tabbb.push(t);
+        }
+      });
+      t.ustensils.forEach((ust) => {
+        console.log(t.ustensils);
+        if (ust.toLowerCase().match(tag)) {
+          displayRecipe(t);
+          tabbb.push(t);
+        }   
+      })
+    }
+    search2(tabbb);
+    displayTag(tabbb);
+  }))
+
+ 
+};
+
 const error = (e) => {
   if (document.getElementById("recipes").innerHTML === "") {
     alert(
       "« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc."
     );
-    document.getElementById("recipes").innerHTML = "";
+    document.getElementById("recipes").innerHTML = "";      
+    document.getElementById("searchAppareil").value = "";
+    document.getElementById("searchUstensiles").value = "";
+    document.querySelector(".appareil").innerHTML = "";
+    document.querySelector(".ingredients").innerHTML = "";
+    document.querySelector(".ustensiles").innerHTML = "";
     e.target.value = "";
     recipes.forEach((recipe) => {
       displayRecipe(recipe);
@@ -61,13 +107,13 @@ const search2 = (tab) => {
   ingredients(tab);
   appareils(tab);
   ustensils(tab);
-  selectTag();
+  selectTag(tab);
 };
 
-const selectTag = () => {
-  tagIngr();
-  tagApp();
-  tagUst();
+const selectTag = (tab) => {
+  tagIngr(tab);
+  tagApp(tab);
+  tagUst(tab);
 };
 
 
@@ -77,8 +123,8 @@ const ingredients = (tab) => {
   const ingrs = document.querySelector(".ingredients");
   ingrs.innerHTML = "";
   const tingr = [];
-  tab.forEach((tabb) => {
-    tabb.ingredients.forEach((ingr) => {
+  tab.forEach((tabbb) => {
+    tabbb.ingredients.forEach((ingr) => {
       tingr.push(ingr.ingredient.toLowerCase());
     });
   });
@@ -90,16 +136,13 @@ const ingredients = (tab) => {
   });
 };
 
-const tagIngr = () => {
+
+const tagIngr = (tab) => {
   const ingrsC = document.querySelectorAll(".ingrsC");
   ingrsC.forEach((ingrC) => {
     const ingrCid = ingrC.textContent.toLowerCase().replaceAll(" ", "");
     const btnIdIngr = [...ingrCid].reverse().join("");
-    ingrC.addEventListener("click", () => {
-      console.log(btnIdIngr);
-      console.log(document.getElementById(btnIdIngr));
-      if (!document.getElementById(btnIdIngr)) {
-        console.log(document.getElementById(btnIdIngr));
+    ingrC.addEventListener("click", (e) => {
         ingrC.remove();
         document.getElementById("tags").innerHTML += `
           <button
@@ -122,7 +165,9 @@ const tagIngr = () => {
             </svg>
           </button>`;
         closeTagIngrs(ingrC);
-      }
+        filterTag(ingrC.textContent, tab);
+        error(e);
+        
     });
   });
 };
@@ -135,9 +180,11 @@ const closeTagIngrs = (ingrC) => {
   ingrsX.forEach((ingrX) => {
     console.log(ingrX);
     const btnX = [...ingrX.id].reverse().join("");
+    
     ingrX.addEventListener("click", () => {
       console.log(btnX);
       document.getElementById(btnX).remove();
+      
       ingrsCC.prepend(ingrC);
     });
   });
@@ -204,18 +251,20 @@ const appareils = (tab) => {
   const appTab = [...new Set(tapp)];
   appTab.forEach((el) => {
     const app = JSON.stringify(el);
+    const appp = app.replaceAll('"', "");
     apps.innerHTML += `
-        <li class="appsC">${app}</li>
+        <li class="appsC">${appp}</li>
       `;
   });
+
 };
 
-const tagApp = () => {
+const tagApp = (tab) => {
   const appsC = document.querySelectorAll(".appsC");
   appsC.forEach((appC) => {
     const appCid = appC.textContent.toLowerCase().replaceAll(" ", "");
     const btnIdApp = [...appCid].reverse().join("");
-    appC.addEventListener("click", () => {
+    appC.addEventListener("click", (e) => {
         appC.remove();
         document.getElementById("tags").innerHTML += `
           <button
@@ -238,6 +287,10 @@ const tagApp = () => {
             </svg>
           </button>`;
         closeTagApps(appC);
+        filterTag(appC.textContent, tab);
+        error(e);
+
+      
     });
   });
 };
@@ -252,6 +305,7 @@ const closeTagApps = (appC) => {
       console.log(btnX);
       document.getElementById(btnX).remove();
       appsCC.prepend(appC);
+      
     });
   });
 };
@@ -316,17 +370,18 @@ const ustensils = (tab) => {
   const ustab = [...new Set(tUst)];
   ustab.forEach((el) => {
     const ust = JSON.stringify(el);
+    const ustt = ust.replaceAll('"', "");
     usts.innerHTML += `
-        <li class="ustsC">${ust}</li>
+        <li class="ustsC">${ustt}</li>
     `;
   });
 };
-const tagUst = () => {
+const tagUst = (tab) => {
   const ustsC = document.querySelectorAll(".ustsC");
   ustsC.forEach((ustC) => {
     const ustCid = ustC.textContent.toLowerCase().replaceAll(" ", "");
     const btnIdUst = [...ustCid].reverse().join("");
-    ustC.addEventListener("click", () => {
+    ustC.addEventListener("click", (e) => {
         ustC.remove();
         document.getElementById("tags").innerHTML += `
         <button
@@ -349,6 +404,9 @@ const tagUst = () => {
           </svg>
         </button>`;
         closeTagUsts(ustC);
+        filterTag(ustC.textContent, tab);
+        error(e);
+
     });
   });
 };
@@ -357,7 +415,6 @@ const closeTagUsts = (ustC) => {
   const ustsX = document.querySelectorAll(".sX");
   const ustsCC = document.querySelector(".ustensiles");
 
-  console.log(ustsX);
   ustsX.forEach((ustX) => {
     console.log(ustX);
     const btnX = [...ustX.id].reverse().join("");
@@ -365,6 +422,7 @@ const closeTagUsts = (ustC) => {
       console.log(btnX);
       document.getElementById(btnX).remove();
       ustsCC.prepend(ustC);
+      
     });
   });
 };
