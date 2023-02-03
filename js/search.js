@@ -62,7 +62,6 @@ const filterTag = (tag, tabb) => {
         }
       });
       t.ustensils.forEach((ust) => {
-        console.log(t.ustensils);
         if (ust.toLowerCase().match(tag)) {
           displayRecipe(t);
           tabbb.push(t);
@@ -129,6 +128,8 @@ const principaleSearch2 = (tab) => {
 };
 
 
+
+
 /*ingredient*****************************************************/
 
 const ingredients = (tab) => {
@@ -159,10 +160,10 @@ const tagIngr = (tab) => {
         document.getElementById("tags").innerHTML += `
           <button
             type="button"
-            class="btn btn-primary my-3 d-flex align-items-center justify-content-between"
+            class="tags tag btn btn-primary my-3 d-flex align-items-center justify-content-between"
             id=${btnIdIngr}
           >
-            <p >${ingrC.textContent}</p>
+            <p class="tags tag txt">${ingrC.textContent}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -177,28 +178,38 @@ const tagIngr = (tab) => {
             </svg>
           </button>`;
         filterTag(ingrC.textContent, tab);
-        closeTagIngrs(ingrC);
-
+        closeTagIngrs(tab);
         error(e);
         
     });
   });
 };
 
-const closeTagIngrs = (ingrC) => {
+const closeTagIngrs = (tab) => {
   const ingrsX = document.querySelectorAll(".sX");
   const ingrsCC = document.querySelector(".ingredients");
 
-  console.log(ingrsX);
   ingrsX.forEach((ingrX) => {
-    console.log(ingrX);
     const btnX = [...ingrX.id].reverse().join("");
-    
     ingrX.addEventListener("click", () => {
-      console.log(btnX);
       document.getElementById(btnX).remove();
-      
-      ingrsCC.prepend(ingrC);
+      const tags = document.querySelectorAll(".tags.tag.txt");
+      if (tags.length >0) {
+        const tagss = [];
+        tags.forEach(tag => {
+          tagss.push(tag.textContent)
+        })
+        filterTag(tagss[tagss.length - 1].textContent, tab);
+
+
+      } else {
+        console.log(tab);
+        document.getElementById('recipes').innerHTML = "";
+        tab.forEach(tabb => {
+          displayRecipe(tabb);
+        })
+        search2(tab);
+      }
     });
   });
 };
@@ -280,7 +291,7 @@ const tagApp = (tab) => {
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
           </button>`;
-        closeTagApps(appC);
+        closeTagApps(tab);
         filterTag(appC.textContent, tab);
         error(e);
 
@@ -289,20 +300,35 @@ const tagApp = (tab) => {
   });
 };
 
-const closeTagApps = (appC) => {
+const closeTagApps = (tab) => {
   const appsX = document.querySelectorAll(".sX");
   const appsCC = document.querySelector(".appareil");
   console.log(appsX);
   appsX.forEach((appX) => {
     const btnX = [...appX.id].reverse().join("");
     appX.addEventListener("click", () => {
-      console.log(btnX);
       document.getElementById(btnX).remove();
-      appsCC.prepend(appC);
-      
+      const tags = document.querySelectorAll(".tags.tag.txt");
+      if (tags.length >0) {
+        const tagss = [];
+        tags.forEach(tag => {
+          tagss.push(tag.textContent)
+        })
+        filterTag(tagss[tagss.length - 1].textContent, tab);
+
+
+      } else {
+        console.log(tab);
+        document.getElementById('recipes').innerHTML = "";
+        tab.forEach(tabb => {
+          displayRecipe(tabb);
+        })
+        search2(tab);
+      }
     });
   });
 };
+
 const search2appareils = (tab) => {
   const t1app = [];
   const t1appRecipe = [];
@@ -378,7 +404,7 @@ const tagUst = (tab) => {
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg>
         </button>`;
-        closeTagUsts(ustC);
+        closeTagUsts(tab);
         filterTag(ustC.textContent, tab);
         error(e);
 
@@ -386,7 +412,7 @@ const tagUst = (tab) => {
   });
 };
 
-const closeTagUsts = (ustC) => {
+const closeTagUsts = (tab) => {
   const ustsX = document.querySelectorAll(".sX");
   const ustsCC = document.querySelector(".ustensiles");
 
@@ -396,8 +422,23 @@ const closeTagUsts = (ustC) => {
     ustX.addEventListener("click", () => {
       console.log(btnX);
       document.getElementById(btnX).remove();
-      ustsCC.prepend(ustC);
-      
+      const tags = document.querySelectorAll(".tags.tag.txt");
+      if (tags.length >0) {
+        const tagss = [];
+        tags.forEach(tag => {
+          tagss.push(tag.textContent)
+        })
+        filterTag(tagss[tagss.length - 1].textContent, tab);
+
+
+      } else {
+        console.log(tab);
+        document.getElementById('recipes').innerHTML = "";
+        tab.forEach(tabb => {
+          displayRecipe(tabb);
+        })
+        search2(tab);
+      }
     });
   });
 };
