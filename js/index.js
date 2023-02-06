@@ -3,17 +3,8 @@ import Recipe from "./recipe.js";
 
 const main = () => {
   displayRecipes();
-  const searchUser = document.getElementById("searchInput");
-  searchUser.addEventListener("input", (e) => {
-    const element = e.target.value.toLowerCase();
-    if (element.length >= 3) {
-      const filteredRecipes = [];
-      document.getElementById("recipes").innerHTML = "";
-      recipes.filter((recipe) => filterRecipes(element, recipe, filteredRecipes));
-      displayResults(filteredRecipes);
-    }
-    error(e);
-  });
+  principaleSearch(recipes);
+
   displayResults(recipes);
 }
 
@@ -55,9 +46,7 @@ const filterTag = (tag, filteredRecipes) => {
     }
     displayResults(filteredTagRecipes);
   }))
- 
 };
-
 
 const displayResults = (filteredRecipes) => {
   ingredientsFilter(filteredRecipes);
