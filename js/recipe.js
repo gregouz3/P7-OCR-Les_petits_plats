@@ -18,13 +18,11 @@ export default class Recipe {
       this.ingredientee += ingrediente.displayIngredient;
     });
   }
-  selectCard() {
-    console.log(`Selected recipe: ${this.name}`);
-  }
+
   get recipeCard() {
     this.ingredient;
     return `
-    <li class="recipe col-4" onclick=${this.selectCard()}>
+    <li class="recipe col-4">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="" alt="Card image cap">
         <div class="card-body">

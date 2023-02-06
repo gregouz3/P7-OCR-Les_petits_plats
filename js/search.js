@@ -1,5 +1,4 @@
-import recipes from "./recipes.js";
-import displayRecipe from "./index.js";
+
 
 const search = () => {
   const searchUser = document.getElementById("searchInput");
@@ -125,8 +124,9 @@ const principaleSearch2 = (tab) => {
     }
     error(e);
   })
-};
+ 
 
+  }
 
 
 
@@ -202,7 +202,9 @@ const closeTagIngrs = (tab) => {
         filterTag(tagss[tagss.length - 1].textContent, tab);
 
 
-      } else {
+
+      } 
+      if (!(document.querySelectorAll(".tags.tag.txt"))){
         console.log(tab);
         document.getElementById('recipes').innerHTML = "";
         tab.forEach(tabb => {
@@ -315,6 +317,7 @@ const closeTagApps = (tab) => {
           tagss.push(tag.textContent)
         })
         filterTag(tagss[tagss.length - 1].textContent, tab);
+
 
 
       } else {

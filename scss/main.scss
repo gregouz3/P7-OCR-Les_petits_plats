@@ -93,9 +93,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  position: relative;
-  z-index: -1;
   .recipe {
-
+    width: 18rem;
   }
 }
