@@ -3,18 +3,32 @@ import Recipe from "./recipe.js";
 
 const main = () => {
   displayRecipes();
-  principaleSearch(recipes);
+  filterRecipesWithPrincipaleSearchBar(recipes);
   displayResults(recipes);
 }
 
-const selectRecipe = () => {
-  const recips = document.querySelectorAll('.recipe');
-  recips.forEach(recipe => {
-    recipe.addEventListener('click', function() {
-      console.log(this.querySelector('p').textContent);
-    });
-  });
+const displayResults = (filteredRecipes) => {
+  filterIngredientsInSearchBar(filteredRecipes);
+  filterAppareilsInSearchBar(filteredRecipes);
+  filterUstensilsInSearchBar(filteredRecipes);
+  displayTags(filteredRecipes);
 };
+
+const displayTags = (filteredRecipes) => {
+  displayIngredients(filteredRecipes);
+  displayAppareils(filteredRecipes);
+  displayUstensils(filteredRecipes);
+  filterRecipesWithTags(filteredRecipes);
+};
+
+const filterRecipesWithTags = (filteredRecipes) => {
+  filterRecipesWithTagIngredient(filteredRecipes);
+  filterRecipesWithTagUstensil(filteredRecipes);
+  filterRecipesWithTagAppareil(filteredRecipes);
+  filterRecipesWithPrincipaleSearchBar(filteredRecipes);
+  selectRecipe();
+}
+
 
 const displayRecipe = (recipe) => {
   const recipesHmtl = document.getElementById("recipes");
@@ -27,6 +41,20 @@ const displayRecipes = () => {
   recipes.forEach(displayRecipe);
 };
 
+const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
+  const searchUser = document.getElementById("searchInput");
+  searchUser.addEventListener("input", (e) => {
+    const element = e.target.value.toLowerCase();
+    if (element.length >= 3) {
+      document.getElementById("recipes").innerHTML = "";
+      const secondfilteredRecipes = [];
+      filteredRecipes.filter((recipe) => filterRecipes(element, recipe, secondfilteredRecipes))
+      displayResults(secondfilteredRecipes)
+    }
+    error(e)
+  })
+}
+
 const filterRecipes = (element, recipe, filteredRecipes) => {
   if (
     recipe.name.toLowerCase().includes(element) ||
@@ -36,9 +64,10 @@ const filterRecipes = (element, recipe, filteredRecipes) => {
     displayRecipe(recipe);
     filteredRecipes.push(recipe);
   }
+  error(e);
 };
 
-const filterTag = (tag, filteredRecipes) => {
+const filterRecipesWithTag = (tag, filteredRecipes) => {
   const filteredTagRecipes = [];
   document.getElementById("recipes").innerHTML = "";
   filteredRecipes.forEach((recipe => {
@@ -56,42 +85,15 @@ const filterTag = (tag, filteredRecipes) => {
   }))
 };
 
-const displayResults = (filteredRecipes) => {
-  ingredientsFilter(filteredRecipes);
-  appareilsFilter(filteredRecipes);
-  ustensilsFilter(filteredRecipes);
-  displayTag(filteredRecipes);
 
+const selectRecipe = () => {
+  const recips = document.querySelectorAll('.recipe');
+  recips.forEach(recipe => {
+    recipe.addEventListener('click', function() {
+      console.log(this.querySelector('p').textContent);
+    });
+  });
 };
-
- const displayTag = (filteredRecipes) => {
-  ingredients(filteredRecipes);
-  appareils(filteredRecipes);
-  ustensils(filteredRecipes);
-  selectTag(filteredRecipes);
-};
-
-const selectTag = (filteredRecipes) => {
-  tagIngr(filteredRecipes);
-  tagApp(filteredRecipes);
-  tagUst(filteredRecipes);
-  principaleSearch(filteredRecipes);
-  selectRecipe();
-};
-
-const principaleSearch = (filteredRecipes) => {
-  const searchUser = document.getElementById("searchInput");
-  searchUser.addEventListener("input", (e) => {
-    const element = e.target.value.toLowerCase();
-    if (element.length >= 3) {
-      document.getElementById("recipes").innerHTML = "";
-      const secondfilteredRecipes = [];
-      filteredRecipes.filter((recipe) => filterRecipes(element, recipe, secondfilteredRecipes))
-      displayResults(secondfilteredRecipes)
-    }
-    error(e)
-  })
-}
 
 
 
@@ -116,7 +118,7 @@ const error = (e) => {
 };
 
 /*ingredient*****************************************************/
-const ingredientsFilter = (filteredRecipes) => {
+const filterIngredientsInSearchBar = (filteredRecipes) => {
   const t1ingr = [];
   const t1ingRecipe = [];
   const ingrs = document.querySelector(".ingredients");
@@ -141,11 +143,11 @@ const ingredientsFilter = (filteredRecipes) => {
         <li class="ingrsC">${el}</li>
       `;
       });
-      selectTag(ut1ingRecipe);
+      filterRecipesWithTags(ut1ingRecipe);
     }
   });
 };
-const ingredients = (filteredRecipes) => {
+const displayIngredients = (filteredRecipes) => {
   const ingrs = document.querySelector(".ingredients");
   ingrs.innerHTML = "";
   const tingr = [];
@@ -162,8 +164,7 @@ const ingredients = (filteredRecipes) => {
   });
 };
 
-
-const tagIngr = (filteredRecipes) => {
+const filterRecipesWithTagIngredient = (filteredRecipes) => {
   const ingrsC = document.querySelectorAll(".ingrsC");
   ingrsC.forEach((ingrC) => {
     const ingrCid = ingrC.textContent.toLowerCase().replaceAll(" ", "");
@@ -189,15 +190,14 @@ const tagIngr = (filteredRecipes) => {
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
           </button>`;
-        filterTag(ingrC.textContent, filteredRecipes);
-        closeTagIngrs(filteredRecipes);
-        error(e);
-        
+        filterRecipesWithTag(ingrC.textContent, filteredRecipes);
+        filterRecipesWhenCloseTagIngredient(filteredRecipes);
     });
   });
 };
 
-const closeTagIngrs = (filteredRecipes) => {
+  
+const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
   const ingrsX = document.querySelectorAll(".sX");
   ingrsX.forEach((ingrX) => {
     const btnX = [...ingrX.id].reverse().join("");
@@ -219,9 +219,9 @@ const closeTagIngrs = (filteredRecipes) => {
         }
       }else if (tags.length === 1) {
         if (document.getElementById('searchInput').value !== '') {
-          filterTag(tags[0].textContent, filteredRecipes)
+          filterRecipesWithTag(tags[0].textContent, filteredRecipes)
         } else {
-          filterTag(tags[0].textContent, recipes);
+          filterRecipesWithTag(tags[0].textContent, recipes);
           console.log(filteredRecipes)
           console.log(tags[0].textContent)
 
@@ -230,12 +230,12 @@ const closeTagIngrs = (filteredRecipes) => {
         if (document.getElementById('searchInput').value !== '') {
           console.log(filteredRecipes);
           tags.forEach(tag => {
-            filterTag(tag.textContent, filteredRecipes)
+            filterRecipesWithTag(tag.textContent, filteredRecipes)
           })
         } else {
           console.log(filteredRecipes)
           tags.forEach(tag => {
-            filterTag(tag.textContent, recipes);
+            filterRecipesWithTag(tag.textContent, recipes);
             console.log(filteredRecipes);
           })
         }
@@ -245,9 +245,8 @@ const closeTagIngrs = (filteredRecipes) => {
 };
 
 
-
 /*APPAREIL******************************************************/
-const appareilsFilter = (filteredRecipes) => {
+const filterAppareilsInSearchBar = (filteredRecipes) => {
   const t1app = [];
   const t1appRecipe = [];
   const apps = document.querySelector(".appareil");
@@ -270,12 +269,13 @@ const appareilsFilter = (filteredRecipes) => {
         <li class="appsC">${el}</li>
       `;
       });
-      selectTag(ut1appRecipe);
+      filterRecipesWithTags(ut1appRecipe);
     }
   });
 };
 
-const appareils = (filteredRecipes) => {
+
+const displayAppareils = (filteredRecipes) => {
   const apps = document.querySelector(".appareil");
   apps.innerHTML = "";
   const tapp = [];
@@ -290,10 +290,9 @@ const appareils = (filteredRecipes) => {
         <li class="appsC">${appp}</li>
       `;
   });
-
 };
 
-const tagApp = (filteredRecipes) => {
+const filterRecipesWithTagAppareil = (filteredRecipes) => {
   const appsC = document.querySelectorAll(".appsC");
   appsC.forEach((appC) => {
     const appCid = appC.textContent.toLowerCase().replaceAll(" ", "");
@@ -319,16 +318,13 @@ const tagApp = (filteredRecipes) => {
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
           </button>`;
-        closeTagApps(filteredRecipes);
-        filterTag(appC.textContent, filteredRecipes);
-        error(e);
-
-      
+        filterRecipesWithTag(appC.textContent, filteredRecipes);
+        filterRecipesWhenCloseTagAppareil(filteredRecipes);
     });
   });
 };
 
-const closeTagApps = (filteredRecipes) => {
+const filterRecipesWhenCloseTagAppareil = (filteredRecipes) => {
   const appsX = document.querySelectorAll(".sX");
   appsX.forEach((appX) => {
     const btnX = [...appX.id].reverse().join("");
@@ -349,23 +345,23 @@ const closeTagApps = (filteredRecipes) => {
         }
       }else if (tags.length === 1) {
         if (document.getElementById('searchInput').value !== '') {
-          filterTag(tags[0].textContent, filteredRecipes)
+          filterRecipesWithTag(tags[0].textContent, filteredRecipes)
           console.log(filteredRecipes)
         } else {
-          filterTag(tags[0].textContent, recipes);
+          filterRecipesWithTag(tags[0].textContent, recipes);
           console.log(filteredRecipes)
         }
       }else {
         if (document.getElementById('searchInput').value !== '') {
           console.log(filteredRecipes);
           tags.forEach(tag => {
-            filterTag(tag.textContent, filteredRecipes);
+            filterRecipesWithTag(tag.textContent, filteredRecipes);
             console.log(filteredRecipes)
           })
         } else {
           console.log(filteredRecipes)
           tags.forEach(tag => {
-            filterTag(tag.textContent, recipes)
+            filterRecipesWithTag(tag.textContent, recipes)
           })
         }
       }
@@ -375,7 +371,7 @@ const closeTagApps = (filteredRecipes) => {
 
 
 /*USTENSILE******************************************************/
-const ustensilsFilter = (filteredRecipes) => {
+const filterUstensilsInSearchBar = (filteredRecipes) => {
   const t1Ust = [];
   const t1UstRecipe = [];
   const usts = document.querySelector(".ustensiles");
@@ -400,12 +396,12 @@ const ustensilsFilter = (filteredRecipes) => {
         <li class="ustsC">${el}</li>
       `;
       });
-      selectTag(ut1UstRecipe);
+      filterRecipesWithTags(ut1UstRecipe);
     }
   });
 };
 
-const ustensils = (filteredRecipes) => {
+const displayUstensils = (filteredRecipes) => {
   const usts = document.querySelector(".ustensiles");
   usts.innerHTML = "";
   const tUst = [];
@@ -424,7 +420,7 @@ const ustensils = (filteredRecipes) => {
   });
 };
 
-const tagUst = (filteredRecipes) => {
+const filterRecipesWithTagUstensil = (filteredRecipes) => {
   const ustsC = document.querySelectorAll(".ustsC");
   ustsC.forEach((ustC) => {
     const ustCid = ustC.textContent.toLowerCase().replaceAll(" ", "");
@@ -450,14 +446,13 @@ const tagUst = (filteredRecipes) => {
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg>
         </button>`;
-        closeTagUsts(filteredRecipes);
-        filterTag(ustC.textContent, filteredRecipes);
-        error(e);
+        filterRecipesWithTag(ustC.textContent, filteredRecipes);
+        filterRecipesWhenCloseTagUstensil(filteredRecipes);
     });
   });
 };
 
-const closeTagUsts = (filteredRecipes) => {
+const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
   const ustsX = document.querySelectorAll(".sX");
   ustsX.forEach((ustX) => {
     const btnX = [...ustX.id].reverse().join("");
@@ -477,28 +472,27 @@ const closeTagUsts = (filteredRecipes) => {
         }
       }else if (tags.length === 1) {
         if (document.getElementById('searchInput').value !== '') {
-          filterTag(tags[0].textContent, filteredRecipes)
+          filterRecipesWithTag(tags[0].textContent, filteredRecipes)
           console.log(filteredRecipes)
         } else {
-          filterTag(tags[0].textContent, recipes);
+          filterRecipesWithTag(tags[0].textContent, recipes);
           console.log(filteredRecipes)
         }
       }else {
         if (document.getElementById('searchInput').value !== '') {
           console.log(filteredRecipes);
           tags.forEach(tag => {
-            filterTag(tag.textContent, filteredRecipes)
+            filterRecipesWithTag(tag.textContent, filteredRecipes)
           })
         } else {
           console.log(filteredRecipes)
           tags.forEach(tag => {
-            filterTag(tag.textContent, recipes)
+            filterRecipesWithTag(tag.textContent, recipes)
           })
         }
       }
     });
   });
 };
-
 
 main();
