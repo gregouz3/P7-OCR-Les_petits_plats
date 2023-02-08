@@ -89,11 +89,32 @@
 }
 
 //listes recettes
-#recipes {
+.recipes {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   .recipe {
     width: 18rem;
+    height: 17rem;
+    margin: 1rem 0;
+    .card {
+      &-img-top {
+
+      }
+      &-body {
+        &_name {
+
+        }
+        &_time {
+
+        }
+        &_ingredients {
+
+        }
+        &_description {
+
+        }
+      }
+    }
   }
 }

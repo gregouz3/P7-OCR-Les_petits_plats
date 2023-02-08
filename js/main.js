@@ -29,7 +29,6 @@ const filterRecipesWithTags = (filteredRecipes) => {
   selectRecipe();
 }
 
-
 const displayRecipe = (recipe) => {
   const recipesHmtl = document.getElementById("recipes");
   const recette = new Recipe(recipe);

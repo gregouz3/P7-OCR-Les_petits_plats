@@ -23,7 +23,7 @@ export default class Recipe {
     this.ingredient;
     return `
     <li class="recipe col-4">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <img class="card-img-top" src="" alt="Card image cap">
         <div class="card-body">
           <div class="d-flex justify-content-between">

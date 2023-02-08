@@ -9833,13 +9833,15 @@ input:focus {
   margin-right: 0.7rem;
 }
 
-#recipes {
+.recipes {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
-#recipes .recipe {
+.recipes .recipe {
   width: 18rem;
+  height: 17rem;
+  margin: 1rem 0;
 }
 
 /*# sourceMappingURL=main.css.map */
