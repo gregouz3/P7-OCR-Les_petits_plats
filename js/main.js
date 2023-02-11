@@ -49,7 +49,7 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
       const secondfilteredRecipes = [];
       filteredRecipes.filter((recipe) => filterRecipes(element, recipe, secondfilteredRecipes))
       displayResults(secondfilteredRecipes)
-    }
+    } 
     error(e)
   })
 }
@@ -63,7 +63,6 @@ const filterRecipes = (element, recipe, filteredRecipes) => {
     displayRecipe(recipe);
     filteredRecipes.push(recipe);
   }
-  error(e);
 };
 
 const filterRecipesWithTag = (tag, filteredRecipes) => {
@@ -98,21 +97,11 @@ const selectRecipe = () => {
 
 const error = (e) => {
   if (document.getElementById("recipes").innerHTML === "") {
-    alert(
+    console.log(
       "« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc."
     );
-    document.getElementById("recipes").innerHTML = "";      
-    document.getElementById("searchAppareil").value = "";
-    document.getElementById("searchUstensiles").value = "";
-    document.getElementById("searchIngredients").value = "";
-    document.querySelector(".appareil").innerHTML = "";
-    document.querySelector(".ingredients").innerHTML = "";
-    document.querySelector(".ustensiles").innerHTML = "";
     e.target.value = "";
-    recipes.forEach((recipe) => {
-      displayRecipe(recipe);
-    });
-    displayResults(recipes);
+    window.location.reload();
   }
 };
 

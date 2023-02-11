@@ -9843,5 +9843,18 @@ input:focus {
   height: 17rem;
   margin: 1rem 0;
 }
+.recipes .recipe .card-img-top {
+  height: 5rem;
+  background-color: #C7BEBE;
+}
+.recipes .recipe .card-body {
+  height: 10rem;
+}
+.recipes .recipe .card-body_ingredients_ingredient {
+  font-weight: 700;
+}
+.recipes .recipe .card-body_ingredients_ingredient_qt {
+  font-weight: 400 !important;
+}
 
 /*# sourceMappingURL=main.css.map */

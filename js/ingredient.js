@@ -7,16 +7,14 @@ export default class Ingredient {
   get displayIngredient() {
     if (this.quantity === undefined && this.unit === undefined) {
       return `
-        <li><span>${this.ingredient}</span></li>
-      `;
-    }
-    if (this.unit == undefined) {
-      return `
-        <li><span>${this.ingredient}:</span> ${this.quantity}</li>
+        <li class="card-body_ingredients"><span class="card-body_ingredients_ingredient">${this.ingredient}</span></li>
       `;
     } else {
       return `
-        <li><span>${this.ingredient}:</span> ${this.quantity}${this.unit}</li>
+        <li class="card-body_ingredients_ingredient">
+          <span class="card-body_ingredients_ingredient">${this.ingredient}:</span>
+          <span class="card-body_ingredients_ingredient_qt">${this.quantity || ''}${this.unit || ''}</span>
+        </li>
       `;
     }
   }

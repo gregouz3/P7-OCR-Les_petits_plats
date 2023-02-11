@@ -99,9 +99,11 @@
     margin: 1rem 0;
     .card {
       &-img-top {
-
+        height: 5rem;
+        background-color: #C7BEBE;
       }
       &-body {
+        height: 10rem;
         &_name {
 
         }
@@ -109,6 +111,13 @@
 
         }
         &_ingredients {
+          &_ingredient {
+            font-weight: 700;
+            &_qt {
+              font-weight: 400!important;
+            }
+
+          }
 
         }
         &_description {
