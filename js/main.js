@@ -450,6 +450,7 @@ const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
           document.getElementById("recipes").innerHTML = "";
+          //bug-
           filteredRecipes.forEach(displayRecipe);
           displayResults(filteredRecipes);
           console.log(filteredRecipes)

@@ -94,35 +94,47 @@
   flex-flow: row wrap;
   justify-content: space-between;
   .recipe {
-    width: 18rem;
-    height: 17rem;
-    margin: 1rem 0;
     .card {
+      margin: 1rem 0.5rem;
+      max-height: 23rem;
       &-img-top {
-        height: 5rem;
+        height: 7rem;
         background-color: #C7BEBE;
       }
       &-body {
-        height: 10rem;
-        &_name {
-
-        }
-        &_time {
-
-        }
-        &_ingredients {
-          &_ingredient {
-            font-weight: 700;
-            &_qt {
-              font-weight: 400!important;
-            }
-
+        max-height: 16rem;
+        &_top {
+          &_name {
+            font-size: 14px;
+            width: 70%;
           }
-
+          &_time {
+            font-size: 13px;
+            &_value {
+            }
+          }
         }
-        &_description {
-
+        &_bot {
+          &_ingredients {
+            font-size: 12px;
+            width: 100%;
+            max-height: 16rem;
+            &_ingredient {
+              font-weight: 700;
+              &_qt {
+                font-weight: 400!important;
+              }
+            }
+          }
+          &_description {
+            font-size: 12px;
+            margin-left: 0.5rem;
+            width: 100%;
+            text-overflow: ellipsis;
+            max-height: 16rem;
+          }
         }
+        
       }
     }
   }
