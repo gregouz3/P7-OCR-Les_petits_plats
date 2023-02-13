@@ -1,5 +1,3 @@
-import recipes from "./recipes.js";
-import Recipe from "./recipe.js";
 
 const main = () => {
   displayRecipes();
@@ -101,6 +99,7 @@ const error = (e) => {
       "« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc."
     );
     e.target.value = "";
+    //integre error niveau tag 
     window.location.reload();
   }
 };

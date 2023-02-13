@@ -115,10 +115,12 @@
           }
         }
         &_bot {
+          width: 100%;
+
           &_ingredients {
             font-size: 12px;
-            width: 100%;
             max-height: 16rem;
+            width: 50%;
             &_ingredient {
               font-weight: 700;
               &_qt {
@@ -129,9 +131,10 @@
           &_description {
             font-size: 12px;
             margin-left: 0.5rem;
-            width: 100%;
+            width: 50%;
             text-overflow: ellipsis;
             max-height: 16rem;
+            width: 50%;
           }
         }
         

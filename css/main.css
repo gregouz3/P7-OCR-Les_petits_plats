@@ -9856,10 +9856,13 @@ input:focus {
 .recipes .recipe .card-body_top_time {
   font-size: 13px;
 }
+.recipes .recipe .card-body_bot {
+  width: 100%;
+}
 .recipes .recipe .card-body_bot_ingredients {
   font-size: 12px;
-  width: 100%;
   max-height: 16rem;
+  width: 50%;
 }
 .recipes .recipe .card-body_bot_ingredients_ingredient {
   font-weight: 700;
@@ -9870,9 +9873,10 @@ input:focus {
 .recipes .recipe .card-body_bot_description {
   font-size: 12px;
   margin-left: 0.5rem;
-  width: 100%;
+  width: 50%;
   text-overflow: ellipsis;
   max-height: 16rem;
+  width: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */

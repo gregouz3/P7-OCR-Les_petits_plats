@@ -1,6 +1,5 @@
-import Ingredient from "./ingredient.js";
-
-export default class Recipe {
+ 
+class Recipe {
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
