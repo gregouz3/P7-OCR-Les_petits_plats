@@ -78,7 +78,6 @@
       display: flex;
       flex-flow: column wrap;
       padding-left: 0;
-
       & .ingrsC,
       & .ustsC,
       & .appsC {
@@ -87,44 +86,46 @@
     }
   }
 }
-
 //listes recettes
 .recipes {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2rem;
   .recipe {
-    .card {
-      margin: 1rem 0.5rem;
-      max-height: 23rem;
       &-img-top {
         height: 7rem;
         background-color: #C7BEBE;
       }
       &-body {
-        max-height: 16rem;
+        background-color: #E7E7E7;
         &_top {
           &_name {
             font-size: 14px;
             width: 70%;
+            font-weight: 500;
           }
           &_time {
             font-size: 13px;
+            font-weight: 700;
             &_value {
             }
           }
         }
         &_bot {
           width: 100%;
-
           &_ingredients {
             font-size: 12px;
-            max-height: 16rem;
+            word-spacing: -0.5px;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
             width: 50%;
+           // font-family: 'Lato';
             &_ingredient {
               font-weight: 700;
+              ;
               &_qt {
                 font-weight: 400!important;
+                white-space: normal;
               }
             }
           }
@@ -132,13 +133,14 @@
             font-size: 12px;
             margin-left: 0.5rem;
             width: 50%;
-            text-overflow: ellipsis;
-            max-height: 16rem;
-            width: 50%;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:6;
+            overflow: hidden;
+         //   font-family: 'Roboto';
+            font-weight: 500;
           }
         }
-        
-      }
     }
   }
 }
