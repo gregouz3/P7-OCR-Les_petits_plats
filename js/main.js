@@ -46,11 +46,29 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
       document.getElementById("recipes").innerHTML = "";
       const secondfilteredRecipes = [];
       filteredRecipes.filter((recipe) => filterRecipes(element, recipe, secondfilteredRecipes))
-      displayResults(secondfilteredRecipes)
+      displayResults(secondfilteredRecipes);
     } 
     error(e)
   })
 }
+/*
+
+//algo comparaison for filter à push sur branch algo1
+const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
+  const searchUser = document.getElementById("searchInput");
+  searchUser.addEventListener("input", (e) => {
+    const element = e.target.value.toLowerCase();
+    if (element.length >= 3) {
+      document.getElementById("recipes").innerHTML = "";
+      const secondfilteredRecipes = [];
+      for (let i=0; i < filteredRecipes.length;i++) {
+        filterRecipes(element, filteredRecipes[i], secondfilteredRecipes);
+        displayResults(secondfilteredRecipes);
+      }
+    error(e)
+    } 
+  })
+}*/
 
 const filterRecipes = (element, recipe, filteredRecipes) => {
   if (
@@ -61,6 +79,7 @@ const filterRecipes = (element, recipe, filteredRecipes) => {
     displayRecipe(recipe);
     filteredRecipes.push(recipe);
   }
+  //console.log(performance.now())
 };
 
 const filterRecipesWithTag = (tag, filteredRecipes) => {
