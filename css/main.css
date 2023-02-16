@@ -9849,6 +9849,7 @@ body {
 .recipes .recipe-body {
   background-color: #E7E7E7;
   padding: 15px;
+  height: 17rem;
 }
 .recipes .recipe-body_top_name {
   font-size: 14px;
@@ -9864,11 +9865,7 @@ body {
 }
 .recipes .recipe-body_bot_ingredients {
   font-size: 12px;
-  word-spacing: -0.5px;
-  letter-spacing: -0.5px;
-  white-space: nowrap;
   width: 50%;
-  margin-right: 0.5rem;
 }
 .recipes .recipe-body_bot_ingredients_ingredient {
   font-weight: 700;

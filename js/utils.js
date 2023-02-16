@@ -1,12 +1,13 @@
 const error = (e) => {
-    if (document.getElementById("recipes").innerHTML === "") {
+    if (document.getElementById("recipes").innerHTML === "")  {
       alert(
         "« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc."
       );
       e.target.value = "";
       //integre error niveau tag 
       displayRecipes();
-    }
+    } 
+  
   };
 
   const selectRecipe = () => {

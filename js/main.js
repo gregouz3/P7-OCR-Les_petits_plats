@@ -1,4 +1,3 @@
-
 const main = () => {
   displayRecipes();
   filterRecipesWithPrincipaleSearchBar(recipes);

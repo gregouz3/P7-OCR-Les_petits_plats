@@ -103,6 +103,7 @@ body {
       &-body {
         background-color: #E7E7E7;
         padding: 15px;
+        height: 17rem;
         &_top {
           &_name {
             font-size: 14px;
@@ -120,11 +121,7 @@ body {
           width: 100%;
           &_ingredients {
             font-size: 12px;
-            word-spacing: -0.5px;
-            letter-spacing: -0.5px;
-            white-space: nowrap;
             width: 50%;
-            margin-right: 0.5rem;
             &_ingredient {
               font-weight: 700;
               ;
