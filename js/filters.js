@@ -13,22 +13,7 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
    //   throw new Error("pas de recettes trouvées")
     })
   }
-//algo comparaison for filter à push sur branch algo1
-const filterRecipesWithPrincipaleSearchBar2 = (filteredRecipes) => {
-    const searchUser = document.getElementById("searchInput");
-    searchUser.addEventListener("input", (e) => {
-      const element = e.target.value.toLowerCase();
-      if (element.length >= 3) {
-        document.getElementById("recipes").innerHTML = "";
-        const secondfilteredRecipes = [];
-        for (let i=0; i < filteredRecipes.length;i++) {
-          filterRecipes(element, filteredRecipes[i], secondfilteredRecipes);
-          displayResults(secondfilteredRecipes);
-        }
-      error(e)
-      } 
-    })
-  }
+
 
 const filterRecipes = (element, recipe, filteredRecipes) => {
     if (
