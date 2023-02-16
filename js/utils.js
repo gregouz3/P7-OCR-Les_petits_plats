@@ -6,7 +6,7 @@ const error = (e) => {
       e.target.value = "";
       displayRecipes();
     } 
-  
+    //cant researrch after error
   };
 
   const selectRecipe = () => {
