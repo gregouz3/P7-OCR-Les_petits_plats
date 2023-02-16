@@ -183,7 +183,7 @@ const filterRecipesWithTagIngredient = (filteredRecipes) => {
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
               </svg>
             </button>`;
-          filterRecipesWithTag(ingrC.textContent, filteredRecipes);
+          filterRecipesWithTags(ingrC.textContent, filteredRecipes);
           filterRecipesWhenCloseTagIngredient(filteredRecipes);
       });
     });
@@ -215,7 +215,7 @@ const filterRecipesWithTagAppareil = (filteredRecipes) => {
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
               </svg>
             </button>`;
-          filterRecipesWithTag(appC.textContent, filteredRecipes);
+          filterRecipesWithTags(appC.textContent, filteredRecipes);
           filterRecipesWhenCloseTagAppareil(filteredRecipes);
       });
     });
@@ -230,10 +230,10 @@ const filterRecipesWithTagUstensil = (filteredRecipes) => {
           document.getElementById("tags").innerHTML += `
           <button
             type="button"
-            class="btn btn-primary my-3 d-flex align-items-center justify-content-between"
+            class="tags tag btn btn-primary my-3 d-flex align-items-center justify-content-between"
             id=${btnIdUst}
           >
-            <p >${ustC.textContent}</p>
+            <p class="tags tag txt">${ustC.textContent}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -247,7 +247,7 @@ const filterRecipesWithTagUstensil = (filteredRecipes) => {
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
             </svg>
           </button>`;
-          filterRecipesWithTag(ustC.textContent, filteredRecipes);
+          filterRecipesWithTags(ustC.textContent, filteredRecipes);
           filterRecipesWhenCloseTagUstensil(filteredRecipes);
       });
     });
@@ -261,7 +261,6 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
         document.getElementById(btnX).remove();
         const tags = document.querySelectorAll(".tags.tag.txt");
         console.log(tags.length)
-
         if (tags.length === 0) {
           if (document.getElementById('searchInput').value !== '') {
             document.getElementById("recipes").innerHTML = "";
@@ -275,9 +274,9 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
           }
         }else if (tags.length === 1) {
           if (document.getElementById('searchInput').value !== '') {
-            filterTag(tags[0].textContent, filteredRecipes)
+            filterRecipesWithTags(tags[0].textContent, filteredRecipes)
           } else {
-            filterTag(tags[0].textContent, recipes);
+            filterRecipesWithTags(tags[0].textContent, recipes);
             console.log(filteredRecipes)
             console.log(tags[0].textContent)
 
@@ -286,12 +285,12 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
           if (document.getElementById('searchInput').value !== '') {
             console.log(filteredRecipes);
             tags.forEach(tag => {
-              filterTag(tag.textContent, filteredRecipes)
+              filterRecipesWithTags(tag.textContent, filteredRecipes)
             })
           } else {
             console.log(filteredRecipes)
             tags.forEach(tag => {
-              filterTag(tag.textContent, recipes);
+              filterRecipesWithTags(tag.textContent, recipes);
               console.log(filteredRecipes);
             })
           }
@@ -321,23 +320,23 @@ const filterRecipesWhenCloseTagAppareil = (filteredRecipes) => {
           }
         }else if (tags.length === 1) {
           if (document.getElementById('searchInput').value !== '') {
-            filterTag(tags[0].textContent, filteredRecipes)
+            filterRecipesWithTags(tags[0].textContent, filteredRecipes)
             console.log(filteredRecipes)
           } else {
-            filterTag(tags[0].textContent, recipes);
+            filterRecipesWithTags(tags[0].textContent, recipes);
             console.log(filteredRecipes)
           }
         }else {
           if (document.getElementById('searchInput').value !== '') {
             console.log(filteredRecipes);
             tags.forEach(tag => {
-              filterTag(tag.textContent, filteredRecipes);
+              filterRecipesWithTags(tag.textContent, filteredRecipes);
               console.log(filteredRecipes)
             })
           } else {
             console.log(filteredRecipes)
             tags.forEach(tag => {
-              filterTag(tag.textContent, recipes)
+              filterRecipesWithTags(tag.textContent, recipes)
             })
           }
         }
@@ -352,7 +351,7 @@ const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
       ustX.addEventListener("click", () => {
         document.getElementById(btnX).remove();
         const tags = document.querySelectorAll(".tags.tag.txt");
-        console.log(tags)
+        console.log(tags.length)
         if (tags.length === 0) {
           if (document.getElementById('searchInput').value !== '') {
             document.getElementById("recipes").innerHTML = "";
@@ -366,22 +365,22 @@ const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
           }
         }else if (tags.length === 1) {
           if (document.getElementById('searchInput').value !== '') {
-            filterTag(tags[0].textContent, filteredRecipes)
+            filterRecipesWithTags(tags[0].textContent, filteredRecipes)
             console.log(filteredRecipes)
           } else {
-            filterTag(tags[0].textContent, recipes);
+            filterRecipesWithTags(tags[0].textContent, recipes);
             console.log(filteredRecipes)
           }
         }else {
           if (document.getElementById('searchInput').value !== '') {
             console.log(filteredRecipes);
             tags.forEach(tag => {
-              filterTag(tag.textContent, filteredRecipes)
+              filterRecipesWithTags(tag.textContent, filteredRecipes)
             })
           } else {
             console.log(filteredRecipes)
             tags.forEach(tag => {
-              filterTag(tag.textContent, recipes)
+              filterRecipesWithTags(tag.textContent, recipes)
             })
           }
         }
