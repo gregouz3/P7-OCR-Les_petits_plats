@@ -1,6 +1,4 @@
 
-
-//algo comparaison for filter 
 const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
     const searchUser = document.getElementById("searchInput");
     searchUser.addEventListener("input", (e) => {
@@ -8,12 +6,11 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
       if (element.length >= 3) {
         document.getElementById("recipes").innerHTML = "";
         const secondfilteredRecipes = [];
-        for (let i=0; i < filteredRecipes.length;i++) {
-          filterRecipes(element, filteredRecipes[i], secondfilteredRecipes);
-          displayResults(secondfilteredRecipes);
-        }
-      error(e)
+        filteredRecipes.filter((recipe) => filterRecipes(element, recipe, secondfilteredRecipes))
+        displayResults(secondfilteredRecipes);
       } 
+      error(e);
+   //   throw new Error("pas de recettes trouvées")
     })
   }
 
