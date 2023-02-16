@@ -9868,6 +9868,7 @@ body {
   letter-spacing: -0.5px;
   white-space: nowrap;
   width: 50%;
+  margin-right: 0.5rem;
 }
 .recipes .recipe-body_bot_ingredients_ingredient {
   font-weight: 700;
@@ -9880,10 +9881,6 @@ body {
   font-size: 12px;
   margin-left: 0.5rem;
   width: 50%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  overflow: hidden;
   font-weight: 500;
 }
 
