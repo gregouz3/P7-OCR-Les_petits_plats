@@ -9755,6 +9755,10 @@ input:focus {
   caret-color: white;
 }
 
+body {
+  padding: 0 1rem;
+}
+
 .title {
   color: #d04f4f;
   font-weight: 700;
@@ -9844,6 +9848,7 @@ input:focus {
 }
 .recipes .recipe-body {
   background-color: #E7E7E7;
+  padding: 15px;
 }
 .recipes .recipe-body_top_name {
   font-size: 14px;
