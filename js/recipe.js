@@ -16,8 +16,14 @@ class Recipe {
       this.ingredientee += ingrediente.displayIngredient;
     });
   }
+  get descriptionAbreg() {
+    const descriptionAbregee = this.description.slice(0, 200);
+    const descriptionAbregeeppp = descriptionAbregee.concat("...");
+    this.description = descriptionAbregeeppp;
+  }
   get recipeCard() { 
     this.ingredient;
+    this.descriptionAbreg;
     return `
     <li class="recipe">
         <div class="recipe-img-top"></div>
