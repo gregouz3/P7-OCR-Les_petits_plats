@@ -9,6 +9,7 @@ class Recipe {
     this.ingredients = data.ingredients;
     this.ustensils = data.ustensils;
   }
+
   get ingredient() {
     this.ingredientee = [];
     this.ingredients.forEach((ingredient) => {
@@ -16,12 +17,14 @@ class Recipe {
       this.ingredientee += ingrediente.displayIngredient;
     });
   }
+
   get descriptionAbreg() {
     const descriptionAbregee = this.description.slice(0, 200);
-    const descriptionAbregeeppp = descriptionAbregee.concat("...");
+    const descriptionAbregeeppp = descriptionAbregee.concat('...');
     this.description = descriptionAbregeeppp;
   }
-  get recipeCard() { 
+
+  get recipeCard() {
     this.ingredient;
     this.descriptionAbreg;
     return `
