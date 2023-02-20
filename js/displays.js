@@ -36,7 +36,7 @@ const displayIngredients = (filteredRecipes) => {
   const uTab = [...new Set(tingr)];
   uTab.forEach((ingr) => {
     ingrs.innerHTML += `
-          <li class="col-4 ingrsC">${ingr}</li>
+          <li class=" ingrsC">${ingr}</li>
         `;
   });
 };
