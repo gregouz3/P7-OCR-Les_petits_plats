@@ -10,7 +10,7 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
       displayResults(secondfilteredRecipes);
       error(e);
     } else if (!element.length) {
-      main();
+        main();
     }
   });
 };
@@ -24,7 +24,6 @@ const filterRecipes = (element, recipe, filteredRecipes) => {
     displayRecipe(recipe);
     filteredRecipes.push(recipe);
   }
-  // console.log(performance.now())
 };
 
 const filterRecipesWithTags = (filteredRecipes) => {
@@ -122,37 +121,28 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
     ingrX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
       const tags = document.querySelectorAll('.tags.tag.txt');
-      console.log(tags.length);
-
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
           document.getElementById('recipes').innerHTML = '';
           filteredRecipes.forEach(displayRecipe);
           displayResults(filteredRecipes);
-          console.log(filteredRecipes);
         } else {
           displayRecipes();
           displayResults(recipes);
-          console.log(filteredRecipes);
         }
       } else if (tags.length === 1) {
         if (document.getElementById('searchInput').value !== '') {
           filterRecipesWithTag(tags[0].textContent, filteredRecipes);
         } else {
           filterRecipesWithTag(tags[0].textContent, recipes);
-          console.log(filteredRecipes);
-          console.log(tags[0].textContent);
         }
       } else if (document.getElementById('searchInput').value !== '') {
-        console.log(filteredRecipes);
         tags.forEach((tag) => {
           filterRecipesWithTag(tag.textContent, filteredRecipes);
         });
       } else {
-        console.log(filteredRecipes);
         tags.forEach((tag) => {
           filterRecipesWithTag(tag.textContent, recipes);
-          console.log(filteredRecipes);
         });
       }
     });
@@ -226,34 +216,26 @@ const filterRecipesWhenCloseTagAppareil = (filteredRecipes) => {
     appX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
       const tags = document.querySelectorAll('.tags.tag.txt');
-      console.log(tags.length);
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
           document.getElementById('recipes').innerHTML = '';
           filteredRecipes.forEach(displayRecipe);
           displayResults(filteredRecipes);
-          console.log(filteredRecipes);
         } else {
           displayRecipes();
           displayResults(recipes);
-          console.log(filteredRecipes);
         }
       } else if (tags.length === 1) {
         if (document.getElementById('searchInput').value !== '') {
           filterRecipesWithTag(tags[0].textContent, filteredRecipes);
-          console.log(filteredRecipes);
         } else {
           filterRecipesWithTag(tags[0].textContent, recipes);
-          console.log(filteredRecipes);
         }
       } else if (document.getElementById('searchInput').value !== '') {
-        console.log(filteredRecipes);
         tags.forEach((tag) => {
           filterRecipesWithTag(tag.textContent, filteredRecipes);
-          console.log(filteredRecipes);
         });
       } else {
-        console.log(filteredRecipes);
         tags.forEach((tag) => {
           filterRecipesWithTag(tag.textContent, recipes);
         });
@@ -331,34 +313,27 @@ const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
     ustX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
       const tags = document.querySelectorAll('.tags.tag.txt');
-      console.log(tags.length);
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
           document.getElementById('recipes').innerHTML = '';
           // bug-
           filteredRecipes.forEach(displayRecipe);
           displayResults(filteredRecipes);
-          console.log(filteredRecipes);
         } else {
           displayRecipes();
           displayResults(recipes);
-          console.log(filteredRecipes);
         }
       } else if (tags.length === 1) {
         if (document.getElementById('searchInput').value !== '') {
           filterRecipesWithTag(tags[0].textContent, filteredRecipes);
-          console.log(filteredRecipes);
         } else {
           filterRecipesWithTag(tags[0].textContent, recipes);
-          console.log(filteredRecipes);
         }
       } else if (document.getElementById('searchInput').value !== '') {
-        console.log(filteredRecipes);
         tags.forEach((tag) => {
           filterRecipesWithTag(tag.textContent, filteredRecipes);
         });
       } else {
-        console.log(filteredRecipes);
         tags.forEach((tag) => {
           filterRecipesWithTag(tag.textContent, recipes);
         });

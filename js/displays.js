@@ -7,6 +7,7 @@ const displayRecipe = (recipe) => {
 const displayRecipes = () => {
   document.getElementById('recipes').innerHTML = '';
   document.querySelector('.messBlock').innerHTML = '';
+  document.querySelector('.tags').innerHTML = '';
   recipes.forEach(displayRecipe);
 };
 
