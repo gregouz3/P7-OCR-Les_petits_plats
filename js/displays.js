@@ -6,6 +6,7 @@ const displayRecipe = (recipe) => {
 
 const displayRecipes = () => {
   document.getElementById('recipes').innerHTML = '';
+  document.querySelector('.messBlock').innerHTML = '';
   recipes.forEach(displayRecipe);
 };
 
@@ -35,7 +36,7 @@ const displayIngredients = (filteredRecipes) => {
   const uTab = [...new Set(tingr)];
   uTab.forEach((ingr) => {
     ingrs.innerHTML += `
-          <li class="ingrsC">${ingr}</li>
+          <li class="col-4 ingrsC">${ingr}</li>
         `;
   });
 };

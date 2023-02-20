@@ -97,31 +97,36 @@ body {
   gap: 2rem 2rem;
   .recipe {
       &-img-top {
-        height: 7rem;
+        height: 8rem;
         background-color: #C7BEBE;
+        max-width:380px ;
       }
       &-body {
         background-color: #E7E7E7;
         padding: 15px;
-        height: 17rem;
+        max-width:380px ;
         &_top {
           &_name {
             font-size: 14px;
             width: 70%;
             font-weight: 500;
+            height: 1rem;
           }
           &_time {
             font-size: 13px;
             font-weight: 700;
-            &_value {
-            }
           }
         }
         &_bot {
           width: 100%;
+          height: 8rem;
+
           &_ingredients {
+           
             font-size: 12px;
             width: 50%;
+            overflow-y: auto;
+
             &_ingredient {
               font-weight: 700;
               ;
@@ -131,13 +136,27 @@ body {
               }
             }
           }
+         
           &_description {
             font-size: 12px;
             margin-left: 0.5rem;
             width: 50%;
             font-weight: 500;
+            overflow: hidden;
+            height: 8rem;
           }
         }
+    }
+  }
+}
+
+.messBlock {
+  & .messError {
+    color: red;
+  }
+  & .messSelect {
+    & .recipeSelect {
+      font-weight: 900;
     }
   }
 }

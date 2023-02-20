@@ -4,12 +4,14 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
     const element = e.target.value.toLowerCase();
     if (element.length >= 3) {
       document.getElementById('recipes').innerHTML = '';
+      document.querySelector('.messBlock').innerHTML = '';
       const secondfilteredRecipes = [];
       filteredRecipes.filter((recipe) => filterRecipes(element, recipe, secondfilteredRecipes));
       displayResults(secondfilteredRecipes);
+      error(e);
+    } else if (!element.length) {
+      main();
     }
-    error(e);
-    //   throw new Error("pas de recettes trouvées")
   });
 };
 
