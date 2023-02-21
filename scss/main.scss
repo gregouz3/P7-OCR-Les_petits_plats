@@ -126,7 +126,19 @@ body {
             font-size: 12px;
             width: 50%;
             overflow-y: auto;
-
+            &::-webkit-scrollbar {
+              background-color: #C7BEBE;
+              border-radius: 5px;
+              width: 10px;
+              min-height: 10px;
+          }
+      
+          &::-webkit-scrollbar-thumb {
+              background-color: #E7E7E7;
+              border: 1px solid #C7BEBE;
+              border-radius: 5px;
+          }
+          }
             &_ingredient {
               font-weight: 700;
               ;
@@ -135,8 +147,6 @@ body {
                 white-space: normal;
               }
             }
-          }
-         
           &_description {
             font-size: 12px;
             margin-left: 0.5rem;

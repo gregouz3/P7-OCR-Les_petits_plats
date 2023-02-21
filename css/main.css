@@ -9871,10 +9871,21 @@ body {
   width: 50%;
   overflow-y: auto;
 }
-.recipes .recipe-body_bot_ingredients_ingredient {
+.recipes .recipe-body_bot_ingredients::-webkit-scrollbar {
+  background-color: #C7BEBE;
+  border-radius: 5px;
+  width: 10px;
+  min-height: 10px;
+}
+.recipes .recipe-body_bot_ingredients::-webkit-scrollbar-thumb {
+  background-color: #E7E7E7;
+  border: 1px solid #C7BEBE;
+  border-radius: 5px;
+}
+.recipes .recipe-body_bot_ingredient {
   font-weight: 700;
 }
-.recipes .recipe-body_bot_ingredients_ingredient_qt {
+.recipes .recipe-body_bot_ingredient_qt {
   font-weight: 400 !important;
   white-space: normal;
 }
