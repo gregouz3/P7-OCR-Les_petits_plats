@@ -101,11 +101,15 @@ body {
         height: 8rem;
         background-color: #C7BEBE;
         max-width:380px ;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
       }
       &-body {
         background-color: #E7E7E7;
         padding: 15px;
         max-width:380px ;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         &_top {
           &_name {
             font-size: 14px;
@@ -121,7 +125,7 @@ body {
         &_bot {
           width: 100%;
           height: 8rem;
-
+      
           &_ingredients {
            
             font-size: 12px;

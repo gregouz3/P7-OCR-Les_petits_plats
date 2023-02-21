@@ -9846,11 +9846,15 @@ body {
   height: 8rem;
   background-color: #C7BEBE;
   max-width: 380px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .recipes .recipe-body {
   background-color: #E7E7E7;
   padding: 15px;
   max-width: 380px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .recipes .recipe-body_top_name {
   font-size: 14px;
