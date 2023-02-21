@@ -74,7 +74,7 @@ const filterIngredientsInSearchBar = (filteredRecipes) => {
       const uTab = [...new Set(t1ingr)];
       uTab.forEach((el) => {
         ingrs.innerHTML += `
-          <li class="ingrsC">${el}</li>
+          <li class=" ingrsC">${el}</li>
         `;
       });
       filterRecipesWithTags(ut1ingRecipe);

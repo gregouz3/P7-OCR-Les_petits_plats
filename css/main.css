@@ -9745,6 +9745,7 @@ textarea.form-control-lg {
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 input {
@@ -9812,31 +9813,34 @@ body {
   background: #ed6454;
 }
 .accordion-button {
-  border-radius: 2px;
-  margin-right: 1rem;
+  border-radius: 5px;
+  margin-bottom: -4px;
+  display: flex;
+  justify-content: space-between;
 }
 .accordion-button .inputSearch {
   color: white;
-  width: 80px;
 }
 .accordion-button .inputSearch::placeholder {
   color: white;
   opacity: 0.8;
 }
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .accordion-body {
   color: white;
-  z-index: 1;
-  position: absolute;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .accordion-body .ingredients, .accordion-body .ustensiles, .accordion-body .appareil {
-  display: flex;
-  flex-flow: column wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 1rem;
   padding-left: 0;
 }
-.accordion-body .ingredients .ingrsC, .accordion-body .ingredients .ustsC, .accordion-body .ingredients .appsC, .accordion-body .ustensiles .ingrsC, .accordion-body .ustensiles .ustsC, .accordion-body .ustensiles .appsC, .accordion-body .appareil .ingrsC, .accordion-body .appareil .ustsC, .accordion-body .appareil .appsC {
-  margin-right: 0.7rem;
-}
-
 .recipes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -61,31 +61,37 @@ body {
     }
   }
   &-button {
-    border-radius: 2px;
-    margin-right: 1rem;
+  border-radius: 5px;
+  margin-bottom: -4px;
+  display: flex;
+  justify-content: space-between;
     & .inputSearch {
       color: white;
-      width: 80px;
       &::placeholder {
         color: white;
         opacity: 0.8;
       }
     }
+    &:not(.collapsed) {
+      box-shadow: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
   &-body {
     color: white;
-    z-index: 1;
-    position: absolute;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     & .ingredients,
     & .ustensiles,
     & .appareil {
-      display: flex;
-      flex-flow: column wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 1rem;
       padding-left: 0;
       & .ingrsC,
       & .ustsC,
       & .appsC {
-        margin-right: 0.7rem;
       }
     }
   }
