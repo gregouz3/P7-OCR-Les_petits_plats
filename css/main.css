@@ -9882,10 +9882,10 @@ body {
   border: 1px solid #C7BEBE;
   border-radius: 5px;
 }
-.recipes .recipe-body_bot_ingredient {
+.recipes .recipe-body_bot_ingredients_ingredient {
   font-weight: 700;
 }
-.recipes .recipe-body_bot_ingredient_qt {
+.recipes .recipe-body_bot_ingredients_ingredient_qt {
   font-weight: 400 !important;
   white-space: normal;
 }

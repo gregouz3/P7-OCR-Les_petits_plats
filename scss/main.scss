@@ -95,8 +95,9 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
-  .recipe {
-      &-img-top {
+  .recipe  {
+   
+    &-img-top {
         height: 8rem;
         background-color: #C7BEBE;
         max-width:380px ;
@@ -131,14 +132,12 @@ body {
               border-radius: 5px;
               width: 10px;
               min-height: 10px;
-          }
-      
-          &::-webkit-scrollbar-thumb {
-              background-color: #E7E7E7;
-              border: 1px solid #C7BEBE;
-              border-radius: 5px;
-          }
-          }
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #E7E7E7;
+                border: 1px solid #C7BEBE;
+                border-radius: 5px;
+            }
             &_ingredient {
               font-weight: 700;
               ;
@@ -146,19 +145,19 @@ body {
                 font-weight: 400!important;
                 white-space: normal;
               }
-            }
-          &_description {
-            font-size: 12px;
-            margin-left: 0.5rem;
-            width: 50%;
-            font-weight: 500;
-            overflow: hidden;
-            height: 8rem;
+            }}
+            &_description {
+              font-size: 12px;
+              margin-left: 0.5rem;
+              width: 50%;
+              font-weight: 500;
+              overflow: hidden;
+              height: 8rem;
           }
         }
+      }
     }
   }
-}
 
 .messBlock {
   & .messError {
