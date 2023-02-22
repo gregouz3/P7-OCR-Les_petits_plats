@@ -1,7 +1,7 @@
 const error = (e) => {
   if (document.querySelector('.recipes').innerHTML === '') {
     document.querySelector('.messBlock').innerHTML = `
-    <p class="messBlock messError" onclick="closeMess">Aucune recette ne correspond à votre critère… 
+    <p class="messBlock messError mr-4" onclick="closeMess">Aucune recette ne correspond à votre critère… 
     vous pouvez chercher « tarte aux pommes », « poisson », etc...
     </p>
     <svg
@@ -31,10 +31,7 @@ const selectRecipe = () => {
     recipe.addEventListener('click', function () {
       document.querySelector('.messBlock').innerHTML = 
       `<p class="messBlock messSelect">
-        Vous avez sélectionnez la recette suivante : 
-        <span class="messBlock messSelect recipeSelect">
-        ${this.querySelector('h3').textContent}
-        </span>
+        Vous avez sélectionnez la recette suivante :&nbsp;<span class=" messBlock messSelect recipeSelect "> ${this.querySelector('h3').textContent}&nbsp;</span>
         <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -55,3 +52,5 @@ const closeMessSelect = () => {
   document.querySelector('.messBlock').innerHTML = '';
 }
 
+
+ 

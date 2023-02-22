@@ -75,7 +75,7 @@ const filterIngredientsInSearchBar = (filteredRecipes) => {
       const uTab = [...new Set(t1ingr)];
       uTab.forEach((el) => {
         ingrs.innerHTML += `
-          <li class=" ingrsC">${el}</li>
+          <li class="ingrsC" title="Filter les recettes avec le tag : ${el}">${el}</li>
         `;
       });
       filterRecipesWithTags(ut1ingRecipe);
@@ -94,7 +94,7 @@ const filterRecipesWithTagIngredient = (filteredRecipes) => {
       document.getElementById('tags').innerHTML += `
             <button
               type="button"
-              class="tags tag btn btn-primary my-3 d-flex align-items-center justify-content-between"
+              class="tags tag--ingr btn d-flex align-items-center"
               id=${btnIdIngr}
             >
               <p class="tags tag txt">${ingrC.textContent}</p>
@@ -173,7 +173,7 @@ const filterAppareilsInSearchBar = (filteredRecipes) => {
       const uTab = [...new Set(t1app)];
       uTab.forEach((el) => {
         apps.innerHTML += `
-          <li class="appsC">${el}</li>
+          <li class="appsC"  title="Filter les recettes avec le tag : ${el}">${el}</li>
         `;
       });
       filterRecipesWithTags(ut1appRecipe);
@@ -192,7 +192,7 @@ const filterRecipesWithTagAppareil = (filteredRecipes) => {
       document.getElementById('tags').innerHTML += `
             <button
               type="button"
-              class="tags tag btn btn-primary my-3 d-flex align-items-center justify-content-between"
+              class="tags tag--app btn d-flex align-items-center"
               id=${btnIdApp}
             >
               <p class="tags tag txt">${appC.textContent}</p>
@@ -273,7 +273,7 @@ const filterUstensilsInSearchBar = (filteredRecipes) => {
       const uTab = [...new Set(t1Ust)];
       uTab.forEach((el) => {
         usts.innerHTML += `
-          <li class="ustsC">${el}</li>
+          <li class="ustsC"  title="Filter les recettes avec le tag : ${el}">${el}</li>
         `;
       });
       filterRecipesWithTags(ut1UstRecipe);
@@ -292,7 +292,7 @@ const filterRecipesWithTagUstensil = (filteredRecipes) => {
       document.getElementById('tags').innerHTML += `
           <button
             type="button"
-            class="tags tag btn btn-primary my-3 d-flex align-items-center justify-content-between"
+            class="tags  tag--ust btn d-flex align-items-center "
             id=${btnIdUst}
           >
             <p class="tags tag txt">${ustC.textContent}</p>

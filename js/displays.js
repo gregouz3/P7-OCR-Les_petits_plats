@@ -37,7 +37,7 @@ const displayIngredients = (filteredRecipes) => {
   const uTab = [...new Set(tingr)];
   uTab.forEach((ingr) => {
     ingrs.innerHTML += `
-          <li class=" ingrsC">${ingr}</li>
+          <li class=" ingrsC" title="Filter les recettes avec le tag : ${ingr}">${ingr}</li>
         `;
   });
 };
@@ -54,7 +54,7 @@ const displayAppareils = (filteredRecipes) => {
     const app = JSON.stringify(el);
     const appp = app.replaceAll('"', '');
     apps.innerHTML += `
-          <li class="appsC">${appp}</li>
+          <li class="appsC" title="Filter les recettes avec le tag : ${appp}">${appp}</li>
         `;
   });
 };
@@ -73,7 +73,7 @@ const displayUstensils = (filteredRecipes) => {
     const ust = JSON.stringify(el);
     const ustt = ust.replaceAll('"', '');
     usts.innerHTML += `
-          <li class="ustsC">${ustt}</li>
+          <li class="ustsC" title="Filter les recettes avec le tag : ${ustt}">${ustt}</li>
       `;
   });
 };

@@ -28,7 +28,7 @@ class Recipe {
     this.ingredient;
     this.descriptionAbreg;
     return `
-    <li class="recipe">
+    <li class="recipe" title="Sélectionner la recette : ${this.name}">
         <div class="recipe-img-top"></div>
         <div class="recipe-body">
           <div class="d-flex justify-content-between recipe-body_top">

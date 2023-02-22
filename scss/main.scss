@@ -2,9 +2,8 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "reset.scss";
 
-
 body {
-  padding: 0 1rem;
+  padding:1rem;
 }
 //TITRE
 .title {
@@ -31,8 +30,33 @@ body {
   margin-top: 1.1rem;
 }
 //TAGS
-#tags {
-  width: 20%;
+.tags {
+  flex-flow: row wrap;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  & .tag{
+    &--ingr {
+      background-color: #3282f7;
+      & .txt {
+        margin:  0.3rem 0.5rem 0.5rem 0;
+        color: white;
+      }
+    }
+    &--app {
+      background-color: #68d9a4;
+      & .txt {
+        margin:  0.3rem 0.5rem 0.5rem 0;
+        color: white;
+      }
+    }
+    &--ust {
+      background-color: #ed6454;
+      & .txt {
+        margin:  0.3rem 0.5rem 0.5rem 0;
+        color: white;
+      }
+    }
+  }  
 }
 //BARRES DE RECHERCHES SECONDAIRES
 .accordion {
@@ -43,7 +67,6 @@ body {
     border: none;
     &--ingr {
       margin-right: 1rem;
-
       & :nth-child(1) {
         background: #3282f7;
       }
@@ -89,10 +112,6 @@ body {
       grid-template-columns: repeat(3, 1fr);
       gap: 0 1rem;
       padding-left: 0;
-      & .ingrsC,
-      & .ustsC,
-      & .appsC {
-      }
     }
   }
 }
@@ -102,18 +121,20 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
   .recipe  {
-   
+    cursor: pointer;
+    &:hover {
+    box-shadow: 1px 1px  1px #c7c7c7;
+    border-radius: 5px;
+    }
     &-img-top {
         height: 8rem;
         background-color: #C7BEBE;
-        max-width:380px ;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
       }
       &-body {
         background-color: #E7E7E7;
         padding: 15px;
-        max-width:380px ;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         &_top {
@@ -170,8 +191,10 @@ body {
   }
 
 .messBlock {
+  display: flex;
+  align-items: center;
   & .messError {
-    color: red;
+    margin: 1rem;
   }
   & .messSelect {
     & .recipeSelect {

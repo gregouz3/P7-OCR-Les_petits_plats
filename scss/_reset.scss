@@ -18,3 +18,11 @@ input {
   }
 }
 
+.btn {
+  color: white;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    box-shadow: 1px  1px 1px #c7c7c7;
+  }
+}
