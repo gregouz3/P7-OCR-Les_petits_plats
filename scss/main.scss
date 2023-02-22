@@ -89,8 +89,7 @@ body {
   @include mobile-only {
     flex-direction: column;
   }  @include tablette-only {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: column;
   }
   &-item {
     border: none;
@@ -100,11 +99,8 @@ body {
       margin:0.5rem auto;
     }
     @include  tablette-only {
-      margin-right:0.5rem;
+      margin:1rem auto;
     }
-    
-    
-    
       & :nth-child(1) {
         background: #3282f7;
       }
@@ -115,7 +111,7 @@ body {
       margin: 0.5rem auto;
     }
     @include  tablette-only {
-      margin-right:0.5rem;
+      margin:1rem auto;
     }
       & :nth-child(1) {
         background: #68d9a4;
@@ -126,7 +122,7 @@ body {
         margin: 0.5rem auto;
       }
       @include  tablette-only {
-        margin:0;
+        margin:1rem auto;
       }
       & :nth-child(1) {
 
