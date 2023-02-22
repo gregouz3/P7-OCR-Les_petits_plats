@@ -1,0 +1,12 @@
+@mixin mobile-only {
+    @media screen and (max-width: 599px) {
+      @content;
+    }
+  }
+
+
+  @mixin tablette-only {
+    @media screen and (min-width: 599px) and (max-width: 899px){
+      @content;
+    }
+  }

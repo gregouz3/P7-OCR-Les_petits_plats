@@ -1,39 +1,63 @@
 @import "variable_overrides.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "reset.scss";
+@import "mxn.scss";
 
 body {
-  padding:1rem;
+  padding: 1rem;
+  @include mobile-only  {
+    padding: 0.5rem;
+  }
 }
 //TITRE
 .title {
   color: #d04f4f;
   font-weight: 700;
   font-size: 36px;
+  @include mobile-only  {
+    font-size: 20px;
+  }
 }
 //BARRE DE RECHERCHE PRINCIPALE
+
 #searchInput {
   height: 69px;
   background: #e7e7e7;
   border-radius: 5px;
   &::placeholder {
-    opacity: 0.25;
+    opacity: 0.3;
   }
   &:focus {
     caret-color: black;
+  }
+  @include mobile-only  {
+    height: 49px;
   }
 }
 #logo_s0 {
   width: 30px;
   height: 30px;
-  margin-left: -3rem;
-  margin-top: 1.1rem;
+  position: absolute;
+  top: 9rem;
+  right: 3rem;
+  @include mobile-only  {
+    height: 15px;
+    width: 15px;
+    top: 7rem;
+    right: 1.5rem;
+  }
 }
 //TAGS
 .tags {
   flex-flow: row wrap;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+
+  margin: 1rem 1rem 1rem 0;
+  @include mobile-only {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+  }
+  @include tablette-only {
+    margin: 0.75rem 0.75rem 0.75rem 0;
+  }
   & .tag{
     &--ingr {
       background-color: #3282f7;
@@ -62,23 +86,50 @@ body {
 .accordion {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  @include mobile-only {
+    flex-direction: column;
+  }  @include tablette-only {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
   &-item {
     border: none;
     &--ingr {
-      margin-right: 1rem;
+    margin-right: 0.5rem;
+    @include mobile-only {
+      margin:0.5rem auto;
+    }
+    @include  tablette-only {
+      margin-right:0.5rem;
+    }
+    
+    
+    
       & :nth-child(1) {
         background: #3282f7;
       }
     }
     &--app {
-      margin-right: 1rem;
+    margin-right: 1rem;
+    @include mobile-only {
+      margin: 0.5rem auto;
+    }
+    @include  tablette-only {
+      margin-right:0.5rem;
+    }
       & :nth-child(1) {
         background: #68d9a4;
       }
     }
     &--ust {
+      @include mobile-only {
+        margin: 0.5rem auto;
+      }
+      @include  tablette-only {
+        margin:0;
+      }
       & :nth-child(1) {
+
         background: #ed6454;
       }
     }
@@ -88,6 +139,7 @@ body {
   margin-bottom: -4px;
   display: flex;
   justify-content: space-between;
+
     & .inputSearch {
       color: white;
       &::placeholder {
@@ -112,14 +164,36 @@ body {
       grid-template-columns: repeat(3, 1fr);
       gap: 0 1rem;
       padding-left: 0;
+      @include mobile-only {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 0.25rem;
+        font-size: 0.9em;
+      }
+      @include tablette-only {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 0.5rem;
+        font-size: 0.9em;
+      }
+   
     }
   }
 }
 //listes recettes
 .recipes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 2rem;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 2rem;
+    
+  @include mobile-only {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem 0rem;
+  }
+  @include tablette-only {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1rem;
+  }
+
   .recipe  {
     cursor: pointer;
     &:hover {
@@ -131,6 +205,7 @@ body {
         background-color: #C7BEBE;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+
       }
       &-body {
         background-color: #E7E7E7;
@@ -152,7 +227,7 @@ body {
         &_bot {
           width: 100%;
           height: 8rem;
-      
+   
           &_ingredients {
            
             font-size: 12px;
@@ -193,12 +268,22 @@ body {
 .messBlock {
   display: flex;
   align-items: center;
+  @include mobile-only {
+    flex-direction: column;
+  }
   & .messError {
     margin: 1rem;
+    @include mobile-only {
+      font-size: 0.8em;
+    }
   }
   & .messSelect {
+    @include mobile-only {
+      font-size: 0.8em;
+    }
     & .recipeSelect {
       font-weight: 900;
     }
   }
 }
+

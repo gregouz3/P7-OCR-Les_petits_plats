@@ -53,4 +53,9 @@ const closeMessSelect = () => {
 }
 
 
- 
+const placeHolderSearchIngredientsUstensilesAppareils = () => {
+  if (document.querySelector('.accordion-button.collapsed').ariaExpanded == false) {
+    console.log("e")
+    document.querySelector('.accordion-buton').setAttribute("placeHolder","Rechercher un ingrédient")
+  }
+}

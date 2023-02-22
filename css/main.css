@@ -9768,11 +9768,21 @@ input:focus {
 body {
   padding: 1rem;
 }
+@media screen and (max-width: 599px) {
+  body {
+    padding: 0.5rem;
+  }
+}
 
 .title {
   color: #d04f4f;
   font-weight: 700;
   font-size: 36px;
+}
+@media screen and (max-width: 599px) {
+  .title {
+    font-size: 20px;
+  }
 }
 
 #searchInput {
@@ -9781,23 +9791,46 @@ body {
   border-radius: 5px;
 }
 #searchInput::placeholder {
-  opacity: 0.25;
+  opacity: 0.3;
 }
 #searchInput:focus {
   caret-color: black;
+}
+@media screen and (max-width: 599px) {
+  #searchInput {
+    height: 49px;
+  }
 }
 
 #logo_s0 {
   width: 30px;
   height: 30px;
-  margin-left: -3rem;
-  margin-top: 1.1rem;
+  position: absolute;
+  top: 9rem;
+  right: 3rem;
+}
+@media screen and (max-width: 599px) {
+  #logo_s0 {
+    height: 15px;
+    width: 15px;
+    top: 7rem;
+    right: 1.5rem;
+  }
 }
 
 .tags {
   flex-flow: row wrap;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 1rem 1rem 0;
+}
+@media screen and (max-width: 599px) {
+  .tags {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .tags {
+    margin: 0.75rem 0.75rem 0.75rem 0;
+  }
 }
 .tags .tag--ingr {
   background-color: #3282f7;
@@ -9824,13 +9857,33 @@ body {
 .accordion {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+}
+@media screen and (max-width: 599px) {
+  .accordion {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .accordion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .accordion-item {
   border: none;
 }
 .accordion-item--ingr {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+}
+@media screen and (max-width: 599px) {
+  .accordion-item--ingr {
+    margin: 0.5rem auto;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .accordion-item--ingr {
+    margin-right: 0.5rem;
+  }
 }
 .accordion-item--ingr :nth-child(1) {
   background: #3282f7;
@@ -9838,8 +9891,28 @@ body {
 .accordion-item--app {
   margin-right: 1rem;
 }
+@media screen and (max-width: 599px) {
+  .accordion-item--app {
+    margin: 0.5rem auto;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .accordion-item--app {
+    margin-right: 0.5rem;
+  }
+}
 .accordion-item--app :nth-child(1) {
   background: #68d9a4;
+}
+@media screen and (max-width: 599px) {
+  .accordion-item--ust {
+    margin: 0.5rem auto;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .accordion-item--ust {
+    margin: 0;
+  }
 }
 .accordion-item--ust :nth-child(1) {
   background: #ed6454;
@@ -9873,11 +9946,37 @@ body {
   gap: 0 1rem;
   padding-left: 0;
 }
+@media screen and (max-width: 599px) {
+  .accordion-body .ingredients, .accordion-body .ustensiles, .accordion-body .appareil {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 0.25rem;
+    font-size: 0.9em;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .accordion-body .ingredients, .accordion-body .ustensiles, .accordion-body .appareil {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 0.5rem;
+    font-size: 0.9em;
+  }
+}
 
 .recipes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
+}
+@media screen and (max-width: 599px) {
+  .recipes {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem 0rem;
+  }
+}
+@media screen and (min-width: 599px) and (max-width: 899px) {
+  .recipes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1rem;
+  }
 }
 .recipes .recipe {
   cursor: pointer;
@@ -9948,8 +10047,23 @@ body {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 599px) {
+  .messBlock {
+    flex-direction: column;
+  }
+}
 .messBlock .messError {
   margin: 1rem;
+}
+@media screen and (max-width: 599px) {
+  .messBlock .messError {
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 599px) {
+  .messBlock .messSelect {
+    font-size: 0.8em;
+  }
 }
 .messBlock .messSelect .recipeSelect {
   font-weight: 900;

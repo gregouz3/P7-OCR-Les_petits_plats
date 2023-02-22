@@ -13,10 +13,9 @@
           <img src="./img/hatChef.png" class="logo" alt="hat chef" />
           <h1 class="title">Les petits plats</h1>
       </header>
-      <div class="row mb-3">
-        <div class="d-flex">
+      <div class="principalSearchBar d-flex justify-content-space-between ">
           <input
-            class="form-control"
+            class="form-control "
             id="searchInput"
             type="text"
             placeholder="Rechercher une recette"
@@ -27,14 +26,13 @@
             height="16"
             fill="currentColor"
             id="logo_s0"
-            class="bi bi-search"
+            class="bi bi-search "
             viewBox="0 0 16 16"
           >
             <path
               d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
             />
           </svg>
-        </div>
       </div>
 
       <div class="tags d-flex" id="tags"></div>
@@ -49,9 +47,11 @@
             <input
               id="searchIngredient"
               type="text"
-              placeholder="Ingredients"
+              placeholder="Ingrédients"
               class="inputSearch"
-            />
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+            >
           </button>
           <div
             class="accordion-collapse collapse"
@@ -116,6 +116,7 @@
       </div>
       <div class="messBlock"></div>
       <ul id="recipes" class="recipes"></ul>
+     
     <script src="js/recipes.js" type="text/JavaScript"></script>
     <script src="js/ingredient.js" type="text/JavaScript"></script>
     <script src="js/recipe.js" type="text/JavaScript"></script>
