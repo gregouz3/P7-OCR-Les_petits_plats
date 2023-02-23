@@ -9855,6 +9855,7 @@ body {
 }
 
 .accordion {
+  position: relative;
   display: flex;
   flex-flow: row wrap;
 }
@@ -9917,6 +9918,7 @@ body {
   background: #ed6454;
 }
 .accordion-button {
+  position: relative;
   border-radius: 5px;
   margin-bottom: -4px;
   display: flex;
@@ -9935,6 +9937,8 @@ body {
   border-bottom-right-radius: 0;
 }
 .accordion-body {
+  position: absolute;
+  z-index: 2;
   color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -9961,9 +9965,13 @@ body {
 }
 
 .recipes {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 @media screen and (max-width: 599px) {
   .recipes {

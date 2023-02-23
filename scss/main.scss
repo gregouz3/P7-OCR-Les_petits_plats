@@ -50,7 +50,6 @@ body {
 //TAGS
 .tags {
   flex-flow: row wrap;
-
   margin: 1rem 1rem 1rem 0;
   @include mobile-only {
     margin: 0.5rem 0.5rem 0.5rem 0;
@@ -84,6 +83,7 @@ body {
 }
 //BARRES DE RECHERCHES SECONDAIRES
 .accordion {
+  position: relative;
   display: flex;
   flex-flow: row wrap;
   @include mobile-only {
@@ -131,11 +131,11 @@ body {
     }
   }
   &-button {
+    position: relative;
   border-radius: 5px;
   margin-bottom: -4px;
   display: flex;
   justify-content: space-between;
-
     & .inputSearch {
       color: white;
       &::placeholder {
@@ -150,6 +150,8 @@ body {
     }
   }
   &-body {
+    position: absolute;
+    z-index: 2;
     color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -170,15 +172,17 @@ body {
         gap: 0 0.5rem;
         font-size: 0.9em;
       }
-   
     }
   }
 }
 //listes recettes
 .recipes {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
+
   @include mobile-only {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem 0rem;
@@ -187,7 +191,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem 1rem;
   }
-
+  position: relative;
+  z-index: 1;
   .recipe  {
     cursor: pointer;
     &:hover {
