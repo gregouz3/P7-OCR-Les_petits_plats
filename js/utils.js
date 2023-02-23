@@ -57,12 +57,11 @@ const closeMessSelect = () => {
 const changePlaceHolder = () => {
   const searchInputs = document.querySelectorAll('.inputSearch');
   const accordionButtons = document.querySelectorAll('#accordionSection button');
+
   const setPlaceholderText = (index, isExpanded) => {
     let placeholderText = '';
     if (isExpanded) {
-     // placeholderText = `Rechercher un ${searchInputs[index].placeholder.toLowerCase()}`;
      placeholderText = `Rechercher un ${searchInputs[index].placeholder.replace(/s$/, '').toLowerCase()}`;
-
     } else {
       switch (index) {
         case 0:
@@ -92,3 +91,5 @@ const changePlaceHolder = () => {
 
 
 changePlaceHolder();
+
+

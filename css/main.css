@@ -9855,7 +9855,6 @@ body {
 }
 
 .accordion {
-  position: relative;
   display: flex;
   flex-flow: row wrap;
 }
@@ -9918,7 +9917,6 @@ body {
   background: #ed6454;
 }
 .accordion-button {
-  position: relative;
   border-radius: 5px;
   margin-bottom: -4px;
   display: flex;
@@ -9937,8 +9935,8 @@ body {
   border-bottom-right-radius: 0;
 }
 .accordion-body {
-  position: absolute;
-  z-index: 2;
+  position: relative;
+  z-index: 10 !important;
   color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;

@@ -83,7 +83,6 @@ body {
 }
 //BARRES DE RECHERCHES SECONDAIRES
 .accordion {
-  position: relative;
   display: flex;
   flex-flow: row wrap;
   @include mobile-only {
@@ -131,7 +130,6 @@ body {
     }
   }
   &-button {
-    position: relative;
   border-radius: 5px;
   margin-bottom: -4px;
   display: flex;
@@ -150,8 +148,8 @@ body {
     }
   }
   &-body {
-    position: absolute;
-    z-index: 2;
+    position: relative;
+    z-index:10!important;
     color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
