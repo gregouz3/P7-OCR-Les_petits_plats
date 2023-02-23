@@ -9768,11 +9768,6 @@ input:focus {
 body {
   padding: 1rem;
 }
-@media screen and (max-width: 599px) {
-  body {
-    padding: 0.5rem;
-  }
-}
 
 .title {
   color: #d04f4f;
@@ -9820,7 +9815,8 @@ body {
 
 .tags {
   flex-flow: row wrap;
-  margin: 1rem 1rem 1rem 0;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
 }
 @media screen and (max-width: 599px) {
   .tags {
@@ -9857,6 +9853,8 @@ body {
 .accordion {
   display: flex;
   flex-flow: row wrap;
+  position: relative;
+  z-index: 100;
 }
 @media screen and (max-width: 599px) {
   .accordion {
@@ -9935,8 +9933,6 @@ body {
   border-bottom-right-radius: 0;
 }
 .accordion-body {
-  position: relative;
-  z-index: 10 !important;
   color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -9963,13 +9959,12 @@ body {
 }
 
 .recipes {
-  position: relative;
-  z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 19rem;
+  padding: 0 1rem 1rem 0;
 }
 @media screen and (max-width: 599px) {
   .recipes {

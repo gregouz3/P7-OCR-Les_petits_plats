@@ -37,6 +37,10 @@ const filterRecipesWithTags = (filteredRecipes) => {
 const filterRecipesWithTag = (tag, filteredRecipes) => {
   const filteredTagRecipes = [];
   document.getElementById('recipes').innerHTML = '';
+  document.querySelector('.messBlock').innerHTML = '';
+  document.querySelector('#recipes').style.top='22rem';
+
+
   filteredRecipes.forEach(((recipe) => {
     if (
       recipe.name.toLowerCase().includes(tag)
@@ -123,6 +127,8 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
     const btnX = [...ingrX.id].reverse().join('');
     ingrX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
+      document.querySelector('#recipes').style.top="19rem";
+
       const tags = document.querySelectorAll('.tags.tag.txt');
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
@@ -221,6 +227,8 @@ const filterRecipesWhenCloseTagAppareil = (filteredRecipes) => {
     const btnX = [...appX.id].reverse().join('');
     appX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
+      document.querySelector('#recipes').style.top="19rem";
+
       const tags = document.querySelectorAll('.tags.tag.txt');
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
@@ -321,11 +329,12 @@ const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
     const btnX = [...ustX.id].reverse().join('');
     ustX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
+      document.querySelector('#recipes').style.top="19rem";
+
       const tags = document.querySelectorAll('.tags.tag.txt');
       if (tags.length === 0) {
         if (document.getElementById('searchInput').value !== '') {
           document.getElementById('recipes').innerHTML = '';
-          // bug-
           filteredRecipes.forEach(displayRecipe);
           displayResults(filteredRecipes);
         } else {
