@@ -23,6 +23,7 @@ const displayTags = (filteredRecipes) => {
   displayAppareils(filteredRecipes);
   displayUstensils(filteredRecipes);
   filterRecipesWithTags(filteredRecipes);
+
 };
 
 const displayIngredients = (filteredRecipes) => {
@@ -40,7 +41,7 @@ const displayIngredients = (filteredRecipes) => {
           <li class=" ingrsC" title="Filter les recettes avec le tag : ${ingr}">${ingr}</li>
         `;
   });
-};
+}
 
 const displayAppareils = (filteredRecipes) => {
   const apps = document.querySelector('.appareil');
@@ -77,3 +78,4 @@ const displayUstensils = (filteredRecipes) => {
       `;
   });
 };
+

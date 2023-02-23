@@ -21,6 +21,7 @@ const error = (e) => {
       e.target.value ='';
       main();
     }
+    //crash when error apres premier filtre; 
   }
  
 };
@@ -53,9 +54,41 @@ const closeMessSelect = () => {
 }
 
 
-const placeHolderSearchIngredientsUstensilesAppareils = () => {
-  if (document.querySelector('.accordion-button.collapsed').ariaExpanded == false) {
-    console.log("e")
-    document.querySelector('.accordion-buton').setAttribute("placeHolder","Rechercher un ingrédient")
-  }
-}
+const changePlaceHolder = () => {
+  const searchInputs = document.querySelectorAll('.inputSearch');
+  const accordionButtons = document.querySelectorAll('#accordionSection button');
+  const setPlaceholderText = (index, isExpanded) => {
+    let placeholderText = '';
+    if (isExpanded) {
+     // placeholderText = `Rechercher un ${searchInputs[index].placeholder.toLowerCase()}`;
+     placeholderText = `Rechercher un ${searchInputs[index].placeholder.replace(/s$/, '').toLowerCase()}`;
+
+    } else {
+      switch (index) {
+        case 0:
+          placeholderText = 'Ingrédients';
+          break;
+        case 1:
+          placeholderText = 'Appareils';
+          break;
+        case 2:
+          placeholderText = 'Ustensiles';
+          break;
+        default:
+          placeholderText = searchInputs[index].placeholder;
+          break;
+      }
+    }
+    searchInputs[index].placeholder = placeholderText;
+  };
+  accordionButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      setPlaceholderText(index, isExpanded);
+    });
+  });
+};
+
+
+
+changePlaceHolder();

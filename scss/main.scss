@@ -177,10 +177,8 @@ body {
 //listes recettes
 .recipes {
   display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem 2rem;
-    
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2rem;
   @include mobile-only {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem 0rem;
