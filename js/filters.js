@@ -31,6 +31,7 @@ const filterRecipesWithTags = (filteredRecipes) => {
   filterRecipesWithTagUstensil(filteredRecipes);
   filterRecipesWithTagAppareil(filteredRecipes);
   filterRecipesWithPrincipaleSearchBar(filteredRecipes);
+
   selectRecipe();
 };
 
@@ -286,7 +287,7 @@ const filterUstensilsInSearchBar = (filteredRecipes) => {
       });
       filterRecipesWithTags(ut1UstRecipe);
     }else if (!element.length) {
-      displayUs(filteredRecipes);
+      displayUstensils(filteredRecipes);
   }
   });
 };

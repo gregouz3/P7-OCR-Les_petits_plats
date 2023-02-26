@@ -18,15 +18,9 @@ class Recipe {
     });
   }
 
-  get descriptionAbreg() {
-    const descriptionAbregee = this.description.slice(0, 150);
-    const descriptionAbregeeppp = descriptionAbregee.concat('...');
-    this.description = descriptionAbregeeppp;
-  }
-
   get recipeCard() {
     this.ingredient;
-    this.descriptionAbreg;
+    const descriptionAbregeeppp = this.description.slice(0, 150).concat('...');
     return `
     <li class="recipe" title="Sélectionner la recette : ${this.name}">
         <div class="recipe-img-top"></div>
@@ -46,7 +40,7 @@ class Recipe {
             ${this.ingredientee}
             </ul>
            
-            <p class="recipe-body_bot_description">${this.description}</p>
+            <p class="recipe-body_bot_description" title="${this.description}">${descriptionAbregeeppp}</p>
         </div>
       </div>
     </li>

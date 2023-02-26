@@ -9765,6 +9765,14 @@ input:focus {
   box-shadow: 1px 1px 1px #c7c7c7;
 }
 
+.accordion-button::after {
+  margin-top: 4px;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
 body {
   padding: 1rem;
 }
@@ -9884,6 +9892,18 @@ body {
 }
 .accordion-item--ingr :nth-child(1) {
   background: #3282f7;
+  min-width: 15rem;
+}
+.accordion-item--ingr .inputSearch {
+  background-color: #3282f7;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+}
+.accordion-item--ingr .inputSearch::placeholder {
+  color: white;
+  opacity: 0.8;
 }
 .accordion-item--app {
   margin-right: 1rem;
@@ -9900,6 +9920,18 @@ body {
 }
 .accordion-item--app :nth-child(1) {
   background: #68d9a4;
+  min-width: 15rem;
+}
+.accordion-item--app .inputSearch {
+  background-color: #68d9a4;
+  position: absolute;
+  top: 1rem;
+  left: 16.5rem;
+  z-index: 50;
+}
+.accordion-item--app .inputSearch::placeholder {
+  color: white;
+  opacity: 0.8;
 }
 @media screen and (max-width: 599px) {
   .accordion-item--ust {
@@ -9913,24 +9945,26 @@ body {
 }
 .accordion-item--ust :nth-child(1) {
   background: #ed6454;
+  min-width: 15rem;
+}
+.accordion-item--ust .inputSearch {
+  background-color: #ed6454;
+  position: absolute;
+  top: 1rem;
+  left: 32.5rem;
+  color: white;
+  z-index: 50;
+}
+.accordion-item--ust .inputSearch::placeholder {
+  color: white;
+  opacity: 0.8;
 }
 .accordion-button {
   border-radius: 5px;
   margin-bottom: -4px;
   display: flex;
   justify-content: space-between;
-}
-.accordion-button .inputSearch {
-  color: white;
-}
-.accordion-button .inputSearch::placeholder {
-  color: white;
-  opacity: 0.8;
-}
-.accordion-button:not(.collapsed) {
-  box-shadow: none;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  min-width: 14rem;
 }
 .accordion-body {
   color: white;

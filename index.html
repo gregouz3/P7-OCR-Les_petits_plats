@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="icon" href="./img/hatChefFavicon.png" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="./img/hatChefFavicon.png">
     <title>Les petits plats</title>
   </head>
   <body>
       <header class="container d-flex flex-column align-items-center mb-2">
-          <img src="./img/hatChef.png" class="logo" alt="hat chef" />
+          <img src="./img/hatChef.png" class="logo" alt="hat chef">
           <h1 class="title">Les petits plats</h1>
       </header>
       <div class="principalSearchBar d-flex justify-content-space-between mb-4">
@@ -19,7 +19,7 @@
             id="searchInput"
             type="text"
             placeholder="Rechercher une recette"
-          />
+          >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -46,15 +46,14 @@
             data-bs-target="#collapseOne"
             aria-expanded="false"
           >
-            <input
+            
+          </button>
+          <input
               id="searchIngredient"
               type="text"
               placeholder="Ingrédients"
               class="inputSearch"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
             >
-          </button>
           <div
             class="accordion-collapse collapse"
             id="collapseOne"
@@ -75,13 +74,14 @@
             aria-expanded="false"
 
           >
-            <input
+            
+          </button>
+          <input
               id="searchAppareil"
               type="text"
               placeholder="Appareils"
               class="inputSearch"
-            />
-          </button>
+            >
           <div
             class="accordion-collapse collapse"
             id="collapseTwo"
@@ -95,20 +95,18 @@
 
         <div class="accordion-item--ust">
           <button
-            type="button"
-            class="accordion-button collapsed"
+            class="accordion-button collapsed mr-1"
             data-bs-toggle="collapse"
             data-bs-target="#collapseThree"
             aria-expanded="false"
-
           >
-            <input
+          </button>
+          <input
               id="searchUstensiles"
               type="text"
               placeholder="Ustensiles"
               class="inputSearch"
-            />
-          </button>
+            >
           <div
             class="accordion-collapse collapse"
             id="collapseThree"
@@ -122,13 +120,13 @@
       </div>
       <ul id="recipes" class="recipes"></ul>
      
-    <script src="js/recipes.js" type="text/JavaScript"></script>
-    <script src="js/ingredient.js" type="text/JavaScript"></script>
-    <script src="js/recipe.js" type="text/JavaScript"></script>
-    <script src="js/utils.js" type="text/JavaScript"></script>
-    <script src="js/displays.js" type="text/JavaScript"></script>
-    <script src="js/filters.js" type="text/JavaScript"></script>
-    <script src="js/main.js" type="text/JavaScript"></script>
+    <script src="js/recipes.js"></script>
+    <script src="js/ingredient.js"></script>
+    <script src="js/recipe.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/displays.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/main.js"></script>
 
 
     <!-- JavaScript Bundle with Popper -->

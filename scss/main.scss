@@ -79,6 +79,8 @@ padding: 1rem;
     }
   }  
 }
+
+
 //BARRES DE RECHERCHES SECONDAIRES
 .accordion {
   display: flex;
@@ -92,29 +94,52 @@ padding: 1rem;
   }
   &-item {
     border: none;
-
     &--ingr {
-    margin-right: 0.5rem;
-    @include mobile-only {
-      margin:0.5rem auto;
-    }
-    @include  tablette-only {
-      margin:1rem auto;
-    }
+      margin-right: 0.5rem;
+      @include mobile-only {
+        margin:0.5rem auto;
+      }
+      @include  tablette-only {
+        margin:1rem auto;
+      }
       & :nth-child(1) {
         background: #3282f7;
+        min-width: 15rem;
+      }
+      & .inputSearch {
+        background-color: #3282f7;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 50;
+        &::placeholder {
+          color: white;
+          opacity: 0.8;
+        }
       }
     }
     &--app {
-    margin-right: 1rem;
-    @include mobile-only {
-      margin: 0.5rem auto;
-    }
-    @include  tablette-only {
-      margin:1rem auto;
-    }
+      margin-right: 1rem;
+      @include mobile-only {
+        margin: 0.5rem auto;
+      }
+      @include  tablette-only {
+        margin:1rem auto;
+      }
       & :nth-child(1) {
         background: #68d9a4;
+        min-width: 15rem;
+      }
+      & .inputSearch {
+        background-color: #68d9a4;
+        position: absolute;
+        top: 1rem;
+        left: 16.5rem;
+        z-index: 50;
+        &::placeholder {
+          color: white;
+          opacity: 0.8;
+        }
       }
     }
     &--ust {
@@ -125,34 +150,38 @@ padding: 1rem;
         margin:1rem auto;
       }
       & :nth-child(1) {
-
         background: #ed6454;
+        min-width: 15rem;
+
+      }
+      & .inputSearch {
+        background-color: #ed6454;
+        position: absolute;
+        top: 1rem;
+        left: 32.5rem;
+        color: white;
+
+        z-index: 50;
+        &::placeholder {
+          color: white;
+          opacity: 0.8;
+        }
+   
+
       }
     }
   }
   &-button {
-  border-radius: 5px;
-  margin-bottom: -4px;
-  display: flex;
-  justify-content: space-between;
-    & .inputSearch {
-      color: white;
-      &::placeholder {
-        color: white;
-        opacity: 0.8;
-      }
-    }
-    &:not(.collapsed) {
-      box-shadow: none;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
+    border-radius: 5px;
+    margin-bottom: -4px;
+    display: flex;
+    justify-content: space-between;
+    min-width: 14rem;
   }
   &-body {
     color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-
     & .ingredients,
     & .ustensiles,
     & .appareil {
@@ -173,6 +202,8 @@ padding: 1rem;
     }
   }
 }
+
+
 //listes recettes
 .recipes {
 
