@@ -10021,12 +10021,12 @@ body {
 }
 .recipes .recipe-img-top {
   height: 8rem;
-  background-color: #C7BEBE;
+  background-color: #c7bebe;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 .recipes .recipe-body {
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
   padding: 15px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -10051,14 +10051,14 @@ body {
   overflow-y: auto;
 }
 .recipes .recipe-body_bot_ingredients::-webkit-scrollbar {
-  background-color: #C7BEBE;
+  background-color: #c7bebe;
   border-radius: 5px;
   width: 10px;
   min-height: 10px;
 }
 .recipes .recipe-body_bot_ingredients::-webkit-scrollbar-thumb {
-  background-color: #E7E7E7;
-  border: 1px solid #C7BEBE;
+  background-color: #e7e7e7;
+  border: 1px solid #c7bebe;
   border-radius: 5px;
 }
 .recipes .recipe-body_bot_ingredients_ingredient {

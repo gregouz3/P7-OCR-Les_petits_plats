@@ -10,7 +10,7 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
       displayResults(secondfilteredRecipes);
       error(e);
     } else if (!element.length) {
-        main();
+      main();
     }
   });
 };
@@ -18,8 +18,8 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
 const filterRecipes = (element, recipe, filteredRecipes) => {
   if (
     recipe.name.toLowerCase().includes(element)
-      || recipe.description.toLowerCase().includes(element)
-      || recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(element))
+    || recipe.description.toLowerCase().includes(element)
+    || recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(element))
   ) {
     displayRecipe(recipe);
     filteredRecipes.push(recipe);
@@ -39,26 +39,24 @@ const filterRecipesWithTag = (tag, filteredRecipes) => {
   const filteredTagRecipes = [];
   document.getElementById('recipes').innerHTML = '';
   document.querySelector('.messBlock').innerHTML = '';
-  document.querySelector('#recipes').style.top='22rem';
+  document.querySelector('#recipes').style.top = '22rem';
 
-
-  filteredRecipes.forEach(((recipe) => {
+  filteredRecipes.forEach((recipe) => {
     if (
       recipe.name.toLowerCase().includes(tag)
-        || recipe.description.toLowerCase().includes(tag)
-        || recipe.appliance.toLowerCase().includes(tag)
-        || recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tag))
-        || recipe.ustensils.some((ustensil) => ustensil.toLowerCase().includes(tag))
+      || recipe.description.toLowerCase().includes(tag)
+      || recipe.appliance.toLowerCase().includes(tag)
+      || recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tag))
+      || recipe.ustensils.some((ustensil) => ustensil.toLowerCase().includes(tag))
     ) {
       displayRecipe(recipe);
       filteredTagRecipes.push(recipe);
     }
     displayResults(filteredTagRecipes);
-  }));
+  });
 };
 
 const filterIngredientsInSearchBar = (filteredRecipes) => {
-
   const ingrs = document.querySelector('.ingredients');
   const searchUserIngredient = document.getElementById('searchIngredient');
   searchUserIngredient.addEventListener('input', (e) => {
@@ -86,7 +84,7 @@ const filterIngredientsInSearchBar = (filteredRecipes) => {
       filterRecipesWithTags(ut1ingRecipe);
     } else if (!element.length) {
       displayIngredients(filteredRecipes);
-  }
+    }
   });
 };
 
@@ -128,7 +126,7 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
     const btnX = [...ingrX.id].reverse().join('');
     ingrX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
-      document.querySelector('#recipes').style.top="19rem";
+      document.querySelector('#recipes').style.top = '19rem';
 
       const tags = document.querySelectorAll('.tags.tag.txt');
       if (tags.length === 0) {
@@ -160,7 +158,6 @@ const filterRecipesWhenCloseTagIngredient = (filteredRecipes) => {
 };
 
 const filterAppareilsInSearchBar = (filteredRecipes) => {
-
   const apps = document.querySelector('.appareil');
   const searchUserAppareil = document.getElementById('searchAppareil');
   searchUserAppareil.addEventListener('input', (e) => {
@@ -184,9 +181,9 @@ const filterAppareilsInSearchBar = (filteredRecipes) => {
         `;
       });
       filterRecipesWithTags(ut1appRecipe);
-    }else if (!element.length) {
+    } else if (!element.length) {
       displayAppareils(filteredRecipes);
-  }
+    }
   });
 };
 
@@ -228,7 +225,7 @@ const filterRecipesWhenCloseTagAppareil = (filteredRecipes) => {
     const btnX = [...appX.id].reverse().join('');
     appX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
-      document.querySelector('#recipes').style.top="19rem";
+      document.querySelector('#recipes').style.top = '19rem';
 
       const tags = document.querySelectorAll('.tags.tag.txt');
       if (tags.length === 0) {
@@ -260,7 +257,6 @@ const filterRecipesWhenCloseTagAppareil = (filteredRecipes) => {
 };
 
 const filterUstensilsInSearchBar = (filteredRecipes) => {
-
   const usts = document.querySelector('.ustensiles');
   const searchUserUstensils = document.getElementById('searchUstensiles');
   searchUserUstensils.addEventListener('input', (e) => {
@@ -286,9 +282,9 @@ const filterUstensilsInSearchBar = (filteredRecipes) => {
         `;
       });
       filterRecipesWithTags(ut1UstRecipe);
-    }else if (!element.length) {
+    } else if (!element.length) {
       displayUstensils(filteredRecipes);
-  }
+    }
   });
 };
 
@@ -330,7 +326,7 @@ const filterRecipesWhenCloseTagUstensil = (filteredRecipes) => {
     const btnX = [...ustX.id].reverse().join('');
     ustX.addEventListener('click', () => {
       document.getElementById(btnX).remove();
-      document.querySelector('#recipes').style.top="19rem";
+      document.querySelector('#recipes').style.top = '19rem';
 
       const tags = document.querySelectorAll('.tags.tag.txt');
       if (tags.length === 0) {

@@ -4,19 +4,18 @@
 @import "mxn.scss";
 
 body {
-padding: 1rem;  
+  padding: 1rem;
 }
 //TITRE
 .title {
   color: #d04f4f;
   font-weight: 700;
   font-size: 36px;
-  @include mobile-only  {
+  @include mobile-only {
     font-size: 20px;
   }
 }
 //BARRE DE RECHERCHE PRINCIPALE
-
 #searchInput {
   height: 69px;
   background: #e7e7e7;
@@ -27,7 +26,7 @@ padding: 1rem;
   &:focus {
     caret-color: black;
   }
-  @include mobile-only  {
+  @include mobile-only {
     height: 49px;
   }
 }
@@ -37,7 +36,7 @@ padding: 1rem;
   position: absolute;
   top: 9rem;
   right: 3rem;
-  @include mobile-only  {
+  @include mobile-only {
     height: 15px;
     width: 15px;
     top: 7rem;
@@ -55,32 +54,30 @@ padding: 1rem;
   @include tablette-only {
     margin: 0.75rem 0.75rem 0.75rem 0;
   }
-  & .tag{
+  & .tag {
     &--ingr {
       background-color: #3282f7;
       & .txt {
-        margin:  0.3rem 0.5rem 0.5rem 0;
+        margin: 0.3rem 0.5rem 0.5rem 0;
         color: white;
       }
     }
     &--app {
       background-color: #68d9a4;
       & .txt {
-        margin:  0.3rem 0.5rem 0.5rem 0;
+        margin: 0.3rem 0.5rem 0.5rem 0;
         color: white;
       }
     }
     &--ust {
       background-color: #ed6454;
       & .txt {
-        margin:  0.3rem 0.5rem 0.5rem 0;
+        margin: 0.3rem 0.5rem 0.5rem 0;
         color: white;
       }
     }
-  }  
+  }
 }
-
-
 //BARRES DE RECHERCHES SECONDAIRES
 .accordion {
   display: flex;
@@ -89,7 +86,8 @@ padding: 1rem;
   z-index: 100;
   @include mobile-only {
     flex-direction: column;
-  }  @include tablette-only {
+  }
+  @include tablette-only {
     flex-direction: column;
   }
   &-item {
@@ -97,10 +95,10 @@ padding: 1rem;
     &--ingr {
       margin-right: 0.5rem;
       @include mobile-only {
-        margin:0.5rem auto;
+        margin: 0.5rem auto;
       }
-      @include  tablette-only {
-        margin:1rem auto;
+      @include tablette-only {
+        margin: 1rem auto;
       }
       & :nth-child(1) {
         background: #3282f7;
@@ -123,8 +121,8 @@ padding: 1rem;
       @include mobile-only {
         margin: 0.5rem auto;
       }
-      @include  tablette-only {
-        margin:1rem auto;
+      @include tablette-only {
+        margin: 1rem auto;
       }
       & :nth-child(1) {
         background: #68d9a4;
@@ -146,13 +144,12 @@ padding: 1rem;
       @include mobile-only {
         margin: 0.5rem auto;
       }
-      @include  tablette-only {
-        margin:1rem auto;
+      @include tablette-only {
+        margin: 1rem auto;
       }
       & :nth-child(1) {
         background: #ed6454;
         min-width: 15rem;
-
       }
       & .inputSearch {
         background-color: #ed6454;
@@ -160,14 +157,11 @@ padding: 1rem;
         top: 1rem;
         left: 32.5rem;
         color: white;
-
         z-index: 50;
         &::placeholder {
           color: white;
           opacity: 0.8;
         }
-   
-
       }
     }
   }
@@ -202,11 +196,8 @@ padding: 1rem;
     }
   }
 }
-
-
 //listes recettes
 .recipes {
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
@@ -221,82 +212,78 @@ padding: 1rem;
   position: absolute;
   top: 19rem;
   padding: 0 1rem 1rem 0;
-  .recipe  {
+  .recipe {
     cursor: pointer;
     &:hover {
-    box-shadow: 1px 1px  1px #c7c7c7;
-    border-radius: 5px;
+      box-shadow: 1px 1px 1px #c7c7c7;
+      border-radius: 5px;
     }
     &-img-top {
-        height: 8rem;
-        background-color: #C7BEBE;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-
+      height: 8rem;
+      background-color: #c7bebe;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    &-body {
+      background-color: #e7e7e7;
+      padding: 15px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      &_top {
+        &_name {
+          font-size: 14px;
+          width: 70%;
+          font-weight: 500;
+          height: 1rem;
+        }
+        &_time {
+          font-size: 13px;
+          font-weight: 700;
+        }
       }
-      &-body {
-        background-color: #E7E7E7;
-        padding: 15px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        &_top {
-          &_name {
-            font-size: 14px;
-            width: 70%;
-            font-weight: 500;
-            height: 1rem;
+      &_bot {
+        width: 100%;
+        height: 8rem;
+        &_ingredients {
+          font-size: 12px;
+          width: 50%;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            background-color: #c7bebe;
+            border-radius: 5px;
+            width: 10px;
+            min-height: 10px;
           }
-          &_time {
-            font-size: 13px;
+          &::-webkit-scrollbar-thumb {
+            background-color: #e7e7e7;
+            border: 1px solid #c7bebe;
+            border-radius: 5px;
+          }
+          &_ingredient {
             font-weight: 700;
+            &_qt {
+              font-weight: 400 !important;
+              white-space: normal;
+            }
           }
         }
-        &_bot {
-          width: 100%;
+        &_description {
+          font-size: 12px;
+          margin-left: 0.5rem;
+          width: 50%;
+          font-weight: 500;
+          overflow: hidden;
           height: 8rem;
-   
-          &_ingredients {
-           
-            font-size: 12px;
-            width: 50%;
-            overflow-y: auto;
-            &::-webkit-scrollbar {
-              background-color: #C7BEBE;
-              border-radius: 5px;
-              width: 10px;
-              min-height: 10px;
-            }
-            &::-webkit-scrollbar-thumb {
-                background-color: #E7E7E7;
-                border: 1px solid #C7BEBE;
-                border-radius: 5px;
-            }
-            &_ingredient {
-              font-weight: 700;
-              ;
-              &_qt {
-                font-weight: 400!important;
-                white-space: normal;
-              }
-            }}
-            &_description {
-              font-size: 12px;
-              margin-left: 0.5rem;
-              width: 50%;
-              font-weight: 500;
-              overflow: hidden;
-              height: 8rem;
-          }
         }
       }
     }
   }
+}
 
 .messBlock {
   display: flex;
   align-items: center;
   @include mobile-only {
-
     flex-direction: column;
   }
   & .messError {
@@ -314,4 +301,3 @@ padding: 1rem;
     }
   }
 }
-
