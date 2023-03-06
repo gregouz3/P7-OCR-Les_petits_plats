@@ -4158,7 +4158,7 @@ textarea.form-control-lg {
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
-  transition: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .accordion-button {
@@ -9816,7 +9816,7 @@ body {
   #logo_s0 {
     height: 15px;
     width: 15px;
-    top: 7rem;
+    top: 7.5rem;
     right: 1.5rem;
   }
 }
@@ -9864,31 +9864,11 @@ body {
   position: relative;
   z-index: 100;
 }
-@media screen and (max-width: 599px) {
-  .accordion {
-    flex-direction: column;
-  }
-}
-@media screen and (min-width: 599px) and (max-width: 899px) {
-  .accordion {
-    flex-direction: column;
-  }
-}
 .accordion-item {
   border: none;
 }
 .accordion-item--ingr {
   margin-right: 0.5rem;
-}
-@media screen and (max-width: 599px) {
-  .accordion-item--ingr {
-    margin: 0.5rem auto;
-  }
-}
-@media screen and (min-width: 599px) and (max-width: 899px) {
-  .accordion-item--ingr {
-    margin: 1rem auto;
-  }
 }
 .accordion-item--ingr :nth-child(1) {
   background: #3282f7;
@@ -9898,8 +9878,8 @@ body {
   background-color: #3282f7;
   position: absolute;
   top: 1rem;
-  left: 1rem;
   z-index: 50;
+  margin-left: 1rem;
 }
 .accordion-item--ingr .inputSearch::placeholder {
   color: white;
@@ -9907,16 +9887,6 @@ body {
 }
 .accordion-item--app {
   margin-right: 1rem;
-}
-@media screen and (max-width: 599px) {
-  .accordion-item--app {
-    margin: 0.5rem auto;
-  }
-}
-@media screen and (min-width: 599px) and (max-width: 899px) {
-  .accordion-item--app {
-    margin: 1rem auto;
-  }
 }
 .accordion-item--app :nth-child(1) {
   background: #68d9a4;
@@ -9926,22 +9896,12 @@ body {
   background-color: #68d9a4;
   position: absolute;
   top: 1rem;
-  left: 16.5rem;
   z-index: 50;
+  margin-left: 1rem;
 }
 .accordion-item--app .inputSearch::placeholder {
   color: white;
   opacity: 0.8;
-}
-@media screen and (max-width: 599px) {
-  .accordion-item--ust {
-    margin: 0.5rem auto;
-  }
-}
-@media screen and (min-width: 599px) and (max-width: 899px) {
-  .accordion-item--ust {
-    margin: 1rem auto;
-  }
 }
 .accordion-item--ust :nth-child(1) {
   background: #ed6454;
@@ -9951,9 +9911,9 @@ body {
   background-color: #ed6454;
   position: absolute;
   top: 1rem;
-  left: 32.5rem;
   color: white;
   z-index: 50;
+  margin-left: 1rem;
 }
 .accordion-item--ust .inputSearch::placeholder {
   color: white;

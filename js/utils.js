@@ -67,9 +67,12 @@ const closeMessSelect = () => {
   }
 };
 
-const changePlaceHolder = () => {
+const changePlaceHolderAndDisplayAccordion = () => {
   const searchInputs = document.querySelectorAll('.inputSearch');
   const accordionButtons = document.querySelectorAll('#accordionSection button');
+  const accordionItemIngr = document.querySelector('.accordion-item--ingr');
+  const accordionItemApp = document.querySelector('.accordion-item--app');
+  const accordionItemUst = document.querySelector('.accordion-item--ust');
 
   const setPlaceholderText = (index, isExpanded) => {
     let placeholderText = '';
@@ -95,12 +98,33 @@ const changePlaceHolder = () => {
     }
     searchInputs[index].placeholder = placeholderText;
   };
+
+  const disableAccordionItem = (index, isExpanded) => {
+    switch (index) {
+      case 0:
+        accordionItemApp.style.display = !isExpanded ? 'block' : 'none';
+        accordionItemUst.style.display = !isExpanded ? 'block' : 'none';
+        break;
+      case 1:
+        accordionItemIngr.style.display = !isExpanded ? 'block' : 'none';
+        accordionItemUst.style.display = !isExpanded ? 'block' : 'none';
+        break;
+      case 2:
+        accordionItemIngr.style.display = !isExpanded ? 'block' : 'none';
+        accordionItemApp.style.display = !isExpanded ? 'block' : 'none';
+        break;
+      default:
+        break;
+    }
+  };
+
   accordionButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
       setPlaceholderText(index, isExpanded);
+      disableAccordionItem(index, isExpanded);
     });
   });
 };
 
-changePlaceHolder();
+changePlaceHolderAndDisplayAccordion();

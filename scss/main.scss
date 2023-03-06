@@ -39,7 +39,7 @@ body {
   @include mobile-only {
     height: 15px;
     width: 15px;
-    top: 7rem;
+    top: 7.5rem;
     right: 1.5rem;
   }
 }
@@ -85,20 +85,16 @@ body {
   position: relative;
   z-index: 100;
   @include mobile-only {
-    flex-direction: column;
   }
   @include tablette-only {
-    flex-direction: column;
   }
   &-item {
     border: none;
     &--ingr {
       margin-right: 0.5rem;
       @include mobile-only {
-        margin: 0.5rem auto;
       }
       @include tablette-only {
-        margin: 1rem auto;
       }
       & :nth-child(1) {
         background: #3282f7;
@@ -108,8 +104,8 @@ body {
         background-color: #3282f7;
         position: absolute;
         top: 1rem;
-        left: 1rem;
         z-index: 50;
+        margin-left: 1rem;
         &::placeholder {
           color: white;
           opacity: 0.8;
@@ -119,10 +115,8 @@ body {
     &--app {
       margin-right: 1rem;
       @include mobile-only {
-        margin: 0.5rem auto;
       }
       @include tablette-only {
-        margin: 1rem auto;
       }
       & :nth-child(1) {
         background: #68d9a4;
@@ -132,8 +126,9 @@ body {
         background-color: #68d9a4;
         position: absolute;
         top: 1rem;
-        left: 16.5rem;
         z-index: 50;
+        margin-left: 1rem;
+
         &::placeholder {
           color: white;
           opacity: 0.8;
@@ -142,10 +137,8 @@ body {
     }
     &--ust {
       @include mobile-only {
-        margin: 0.5rem auto;
       }
       @include tablette-only {
-        margin: 1rem auto;
       }
       & :nth-child(1) {
         background: #ed6454;
@@ -155,9 +148,9 @@ body {
         background-color: #ed6454;
         position: absolute;
         top: 1rem;
-        left: 32.5rem;
         color: white;
         z-index: 50;
+        margin-left: 1rem;
         &::placeholder {
           color: white;
           opacity: 0.8;
