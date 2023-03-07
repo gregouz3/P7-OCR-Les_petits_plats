@@ -6,9 +6,9 @@ const filterRecipesWithPrincipaleSearchBar = (filteredRecipes) => {
       document.getElementById("recipes").innerHTML = "";
       document.querySelector(".messBlock").innerHTML = "";
       const secondfilteredRecipes = [];
-      for (let i = 0; i < filteredRecipes.length; i++) {
-        filterRecipes(element, filteredRecipes[i], secondfilteredRecipes);
-      }
+      filteredRecipes.filter((recipe) =>
+        filterRecipes(element, recipe, secondfilteredRecipes)
+      );
       displayResults(secondfilteredRecipes);
       error(e);
     } else if (!element.length) {
