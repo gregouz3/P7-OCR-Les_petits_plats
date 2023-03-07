@@ -28,13 +28,13 @@
   <div class="tags d-flex" id="tags"></div>
   <div class="accordion" id="accordionSection">
     <div class="accordion-item--ingr">
-      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+      <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne"
         aria-expanded="false">
-
+        Ingrédients
       </button>
-      <input id="searchIngredient" type="text" placeholder="Ingrédients" class="inputSearch">
       <div class="accordion-collapse collapse" id="collapseOne" data-bs-parent="#accordionSection">
         <div class="accordion-body ">
+          <input id="searchIngredient" type="text" placeholder="Rechercher un ingrédient" class="inputSearch">
           <ul class="ingredients"></ul>
         </div>
       </div>
@@ -43,11 +43,11 @@
     <div class="accordion-item--app">
       <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
         aria-expanded="false">
-
+        Appareils
       </button>
-      <input id="searchAppareil" type="text" placeholder="Appareils" class="inputSearch">
       <div class="accordion-collapse collapse" id="collapseTwo" data-bs-parent="#accordionSection">
         <div class="accordion-body">
+          <input id="searchAppareil" type="text" placeholder="Rechercher un appareil" class="inputSearch">
           <ul class="appareil"></ul>
         </div>
       </div>
@@ -56,10 +56,12 @@
     <div class="accordion-item--ust">
       <button class="accordion-button collapsed mr-1" data-bs-toggle="collapse" data-bs-target="#collapseThree"
         aria-expanded="false">
+        Ustensiles
       </button>
-      <input id="searchUstensiles" type="text" placeholder="Ustensiles" class="inputSearch">
       <div class="accordion-collapse collapse" id="collapseThree" data-bs-parent="#accordionSection">
         <div class="accordion-body">
+          <input id="searchUstensiles" type="text" placeholder="Rechercher un ustensile" class="inputSearch">
+
           <ul class="ustensiles"></ul>
         </div>
       </div>

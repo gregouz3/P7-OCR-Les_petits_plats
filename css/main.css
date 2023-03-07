@@ -9742,6 +9742,10 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
+body {
+  padding: 1rem;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -9773,16 +9777,12 @@ input:focus {
   box-shadow: none;
 }
 
-body {
-  padding: 1rem;
-}
-
 .title {
   color: #d04f4f;
   font-weight: 700;
   font-size: 36px;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .title {
     font-size: 20px;
   }
@@ -9799,7 +9799,7 @@ body {
 #searchInput:focus {
   caret-color: black;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   #searchInput {
     height: 49px;
   }
@@ -9812,7 +9812,7 @@ body {
   top: 9rem;
   right: 3rem;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   #logo_s0 {
     height: 15px;
     width: 15px;
@@ -9826,36 +9826,27 @@ body {
   margin-right: 1rem;
   margin-bottom: 0.5rem;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .tags {
-    margin: 0.5rem 0.5rem 0.5rem 0;
-  }
-}
-@media screen and (min-width: 599px) and (max-width: 899px) {
-  .tags {
-    margin: 0.75rem 0.75rem 0.75rem 0;
+    margin-right: 0.5rem;
   }
 }
 .tags .tag--ingr {
   background-color: #3282f7;
 }
-.tags .tag--ingr .txt {
-  margin: 0.3rem 0.5rem 0.5rem 0;
-  color: white;
-}
 .tags .tag--app {
   background-color: #68d9a4;
-}
-.tags .tag--app .txt {
-  margin: 0.3rem 0.5rem 0.5rem 0;
-  color: white;
 }
 .tags .tag--ust {
   background-color: #ed6454;
 }
-.tags .tag--ust .txt {
+.tags .tag.txt {
   margin: 0.3rem 0.5rem 0.5rem 0;
-  color: white;
+}
+@media screen and (max-width: 699px) {
+  .tags .tag.txt {
+    font-size: 0.8rem;
+  }
 }
 
 .accordion {
@@ -9864,67 +9855,103 @@ body {
   position: relative;
   z-index: 100;
 }
+@media screen and (max-width: 699px) {
+  .accordion {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 699px) and (max-width: 899px) {
+  .accordion {
+    justify-content: center;
+  }
+}
 .accordion-item {
   border: none;
 }
 .accordion-item--ingr {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
-.accordion-item--ingr :nth-child(1) {
+@media screen and (max-width: 699px) {
+  .accordion-item--ingr {
+    margin-right: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+}
+@media screen and (min-width: 699px) and (max-width: 899px) {
+  .accordion-item--ingr {
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+.accordion-item--ingr .accordion-button, .accordion-item--ingr .inputSearch, .accordion-item--ingr .accordion-body {
   background: #3282f7;
-  min-width: 15rem;
-}
-.accordion-item--ingr .inputSearch {
-  background-color: #3282f7;
-  position: absolute;
-  top: 1rem;
-  z-index: 50;
-  margin-left: 1rem;
-}
-.accordion-item--ingr .inputSearch::placeholder {
-  color: white;
-  opacity: 0.8;
 }
 .accordion-item--app {
   margin-right: 1rem;
 }
-.accordion-item--app :nth-child(1) {
+@media screen and (min-width: 699px) and (max-width: 899px) {
+  .accordion-item--app {
+    margin-right: 0.5rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .accordion-item--app {
+    margin-right: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+}
+.accordion-item--app .accordion-button, .accordion-item--app .inputSearch, .accordion-item--app .accordion-body {
   background: #68d9a4;
-  min-width: 15rem;
 }
-.accordion-item--app .inputSearch {
-  background-color: #68d9a4;
-  position: absolute;
-  top: 1rem;
-  z-index: 50;
-  margin-left: 1rem;
+@media screen and (max-width: 699px) {
+  .accordion-item--ust {
+    margin-right: 0.5rem;
+  }
 }
-.accordion-item--app .inputSearch::placeholder {
-  color: white;
-  opacity: 0.8;
-}
-.accordion-item--ust :nth-child(1) {
-  background: #ed6454;
-  min-width: 15rem;
-}
-.accordion-item--ust .inputSearch {
+.accordion-item--ust .accordion-button, .accordion-item--ust .inputSearch, .accordion-item--ust .accordion-body {
   background-color: #ed6454;
-  position: absolute;
-  top: 1rem;
-  color: white;
-  z-index: 50;
-  margin-left: 1rem;
-}
-.accordion-item--ust .inputSearch::placeholder {
-  color: white;
-  opacity: 0.8;
 }
 .accordion-button {
   border-radius: 5px;
   margin-bottom: -4px;
   display: flex;
-  justify-content: space-between;
-  min-width: 14rem;
+  min-width: 15rem;
+  color: white;
+}
+@media screen and (max-width: 699px) {
+  .accordion-button {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 699px) and (max-width: 899px) {
+  .accordion-button {
+    font-size: 0.8rem;
+  }
+}
+.accordion .inputSearch {
+  color: white;
+  position: absolute;
+  top: 1rem;
+  z-index: 50;
+  max-width: 11rem;
+}
+@media screen and (max-width: 699px) {
+  .accordion .inputSearch {
+    font-size: 0.8rem;
+    max-width: 8rem;
+    letter-spacing: -1px;
+  }
+}
+@media screen and (min-width: 699px) and (max-width: 899px) {
+  .accordion .inputSearch {
+    font-size: 0.8rem;
+    max-width: 8rem;
+    letter-spacing: -1px;
+  }
+}
+.accordion .inputSearch::placeholder {
+  opacity: 0.8;
+  color: white;
 }
 .accordion-body {
   color: white;
@@ -9937,18 +9964,18 @@ body {
   gap: 0 1rem;
   padding-left: 0;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .accordion-body .ingredients, .accordion-body .ustensiles, .accordion-body .appareil {
     grid-template-columns: repeat(2, 1fr);
     gap: 0 0.25rem;
-    font-size: 0.9em;
+    font-size: 0.7rem;
   }
 }
-@media screen and (min-width: 599px) and (max-width: 899px) {
+@media screen and (min-width: 699px) and (max-width: 899px) {
   .accordion-body .ingredients, .accordion-body .ustensiles, .accordion-body .appareil {
-    grid-template-columns: repeat(2, 1fr);
     gap: 0 0.5rem;
-    font-size: 0.9em;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.8rem;
   }
 }
 
@@ -9957,19 +9984,21 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
   position: absolute;
-  top: 19rem;
+  top: 19.5rem;
   padding: 0 1rem 1rem 0;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .recipes {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem 0rem;
+    margin-top: 10rem;
   }
 }
-@media screen and (min-width: 599px) and (max-width: 899px) {
+@media screen and (min-width: 699px) and (max-width: 899px) {
   .recipes {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem 1rem;
+    margin-top: 8rem;
   }
 }
 .recipes .recipe {
@@ -10041,7 +10070,7 @@ body {
   display: flex;
   align-items: center;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .messBlock {
     flex-direction: column;
   }
@@ -10049,18 +10078,10 @@ body {
 .messBlock .messError {
   margin: 1rem;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 699px) {
   .messBlock .messError {
     font-size: 0.8em;
   }
-}
-@media screen and (max-width: 599px) {
-  .messBlock .messSelect {
-    font-size: 0.8em;
-  }
-}
-.messBlock .messSelect .recipeSelect {
-  font-weight: 900;
 }
 
 /*# sourceMappingURL=main.css.map */

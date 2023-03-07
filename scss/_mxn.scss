@@ -1,20 +1,11 @@
 @mixin mobile-only {
-    @media screen and (max-width: 599px) {
-      @content;
-    }
-  }
-
-
-@mixin tablette-only {
-    @media screen and (min-width: 599px) and (max-width: 899px){
-      @content;
-    }
-  }
-
-@mixin desktop-only {
-  @media screen and (min-width: 1090px) {
+  @media screen and (max-width: 699px) {
     @content;
   }
 }
-  //breackpoint 1076px accordion ustensiles not wrap . 
 
+@mixin tablette-only {
+  @media screen and (min-width: 699px) and (max-width: 899px) {
+    @content;
+  }
+}

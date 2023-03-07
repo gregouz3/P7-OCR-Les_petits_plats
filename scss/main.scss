@@ -2,10 +2,7 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "reset.scss";
 @import "mxn.scss";
-//
-body {
-  padding: 1rem;
-}
+
 //TITRE
 .title {
   color: #d04f4f;
@@ -49,31 +46,22 @@ body {
   margin-right: 1rem;
   margin-bottom: 0.5rem;
   @include mobile-only {
-    margin: 0.5rem 0.5rem 0.5rem 0;
-  }
-  @include tablette-only {
-    margin: 0.75rem 0.75rem 0.75rem 0;
+    margin-right: 0.5rem;
   }
   & .tag {
     &--ingr {
       background-color: #3282f7;
-      & .txt {
-        margin: 0.3rem 0.5rem 0.5rem 0;
-        color: white;
-      }
     }
     &--app {
       background-color: #68d9a4;
-      & .txt {
-        margin: 0.3rem 0.5rem 0.5rem 0;
-        color: white;
-      }
     }
     &--ust {
       background-color: #ed6454;
-      & .txt {
-        margin: 0.3rem 0.5rem 0.5rem 0;
-        color: white;
+    }
+    &.txt {
+      margin: 0.3rem 0.5rem 0.5rem 0;
+      @include mobile-only {
+        font-size: 0.8rem;
       }
     }
   }
@@ -85,76 +73,52 @@ body {
   position: relative;
   z-index: 100;
   @include mobile-only {
+    justify-content: center;
   }
   @include tablette-only {
+    justify-content: center;
   }
   &-item {
     border: none;
     &--ingr {
-      margin-right: 0.5rem;
+      margin-right: 1rem;
       @include mobile-only {
+        margin-right: 0.5rem;
+        margin-bottom: 0.75rem;
       }
       @include tablette-only {
+        margin-right: 0.5rem;
+        margin-bottom: 1rem;
       }
-      & :nth-child(1) {
+      & .accordion-button,
+      & .inputSearch,
+      & .accordion-body {
         background: #3282f7;
-        min-width: 15rem;
-      }
-      & .inputSearch {
-        background-color: #3282f7;
-        position: absolute;
-        top: 1rem;
-        z-index: 50;
-        margin-left: 1rem;
-        &::placeholder {
-          color: white;
-          opacity: 0.8;
-        }
       }
     }
     &--app {
       margin-right: 1rem;
-      @include mobile-only {
-      }
       @include tablette-only {
+        margin-right: 0.5rem;
       }
-      & :nth-child(1) {
+      @include mobile-only {
+        margin-right: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      & .accordion-button,
+      & .inputSearch,
+      & .accordion-body {
         background: #68d9a4;
-        min-width: 15rem;
-      }
-      & .inputSearch {
-        background-color: #68d9a4;
-        position: absolute;
-        top: 1rem;
-        z-index: 50;
-        margin-left: 1rem;
-
-        &::placeholder {
-          color: white;
-          opacity: 0.8;
-        }
       }
     }
     &--ust {
       @include mobile-only {
+        margin-right: 0.5rem;
       }
-      @include tablette-only {
-      }
-      & :nth-child(1) {
-        background: #ed6454;
-        min-width: 15rem;
-      }
-      & .inputSearch {
+      & .accordion-button,
+      & .inputSearch,
+      & .accordion-body {
         background-color: #ed6454;
-        position: absolute;
-        top: 1rem;
-        color: white;
-        z-index: 50;
-        margin-left: 1rem;
-        &::placeholder {
-          color: white;
-          opacity: 0.8;
-        }
       }
     }
   }
@@ -162,8 +126,35 @@ body {
     border-radius: 5px;
     margin-bottom: -4px;
     display: flex;
-    justify-content: space-between;
-    min-width: 14rem;
+    min-width: 15rem;
+    color: white;
+    @include mobile-only {
+      font-size: 0.8rem;
+    }
+    @include tablette-only {
+      font-size: 0.8rem;
+    }
+  }
+  & .inputSearch {
+    color: white;
+    position: absolute;
+    top: 1rem;
+    z-index: 50;
+    max-width: 11rem;
+    @include mobile-only {
+      font-size: 0.8rem;
+      max-width: 8rem;
+      letter-spacing: -1px;
+    }
+    @include tablette-only {
+      font-size: 0.8rem;
+      max-width: 8rem;
+      letter-spacing: -1px;
+    }
+    &::placeholder {
+      opacity: 0.8;
+      color: white;
+    }
   }
   &-body {
     color: white;
@@ -178,13 +169,14 @@ body {
       padding-left: 0;
       @include mobile-only {
         grid-template-columns: repeat(2, 1fr);
+
         gap: 0 0.25rem;
-        font-size: 0.9em;
+        font-size: 0.7rem;
       }
       @include tablette-only {
-        grid-template-columns: repeat(2, 1fr);
         gap: 0 0.5rem;
-        font-size: 0.9em;
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 0.8rem;
       }
     }
   }
@@ -197,13 +189,15 @@ body {
   @include mobile-only {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem 0rem;
+    margin-top: 10rem;
   }
   @include tablette-only {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem 1rem;
+    margin-top: 8rem;
   }
   position: absolute;
-  top: 19rem;
+  top: 19.5rem;
   padding: 0 1rem 1rem 0;
   .recipe {
     cursor: pointer;
@@ -281,16 +275,9 @@ body {
   }
   & .messError {
     margin: 1rem;
+
     @include mobile-only {
       font-size: 0.8em;
-    }
-  }
-  & .messSelect {
-    @include mobile-only {
-      font-size: 0.8em;
-    }
-    & .recipeSelect {
-      font-weight: 900;
     }
   }
 }

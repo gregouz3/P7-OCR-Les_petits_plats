@@ -37,7 +37,7 @@ const displayIngredients = (filteredRecipes) => {
   const uTab = [...new Set(tingr)];
   uTab.forEach((ingr) => {
     ingrs.innerHTML += `
-          <li class=" ingrsC" title="Filter les recettes avec le tag : ${ingr}">${ingr}</li>
+          <li class="ingrsC" title="Filter les recettes avec le tag : ${ingr}">${ingr}</li>
         `;
   });
 };

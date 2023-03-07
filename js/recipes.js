@@ -13,6 +13,7 @@ const recipes = [
         ingredient: 'Jus de citron',
         quantity: 2,
       },
+
       {
         ingredient: 'Crème de coco',
         quantity: 2,
@@ -198,7 +199,7 @@ const recipes = [
         quantity: 1,
       },
       {
-        ingredient: 'Pomme',
+        ingredient: 'Pommes',
         quantity: 3,
       },
       {
@@ -1379,7 +1380,7 @@ const recipes = [
     servings: 40,
     ingredients: [
       {
-        ingredient: 'Pomme',
+        ingredient: 'Pommes',
         quantity: 2,
       },
       {
