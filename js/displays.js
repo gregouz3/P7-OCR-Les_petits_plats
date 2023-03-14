@@ -4,22 +4,12 @@ const displayRecipe = (recipe) => {
   recipesHmtl.innerHTML += recette.recipeCard;
 };
 
-const displayRecipes = () => {
+const displayRecipes = (recipes) => {
   document.getElementById("recipes").innerHTML = "";
   document.querySelector(".tags").innerHTML = "";
+  document.querySelector(".messBlock").innerHTML = "";
   recipes.forEach(displayRecipe);
-};
-
-const displayResults = (filteredRecipes) => {
-  filterIngredientsInSearchBar(filteredRecipes);
-  filterAppareilsInSearchBar(filteredRecipes);
-  filterUstensilsInSearchBar(filteredRecipes);
-  displayTags(filteredRecipes);
-};
-
-const displayTags = (filteredRecipes) => {
-  displayIngredients(filteredRecipes);
-  displayAppareils(filteredRecipes);
-  displayUstensils(filteredRecipes);
-  filterRecipesWithTags(filteredRecipes);
+  displayIngredients(recipes);
+  displayAppareils(recipes);
+  displayUstensils(recipes);
 };

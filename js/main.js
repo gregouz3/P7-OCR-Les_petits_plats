@@ -1,7 +1,6 @@
-const main = () => {
-  displayRecipes();
+const main = (recipes) => {
+  displayRecipes(recipes);
   filterRecipesWithPrincipaleSearchBar(recipes);
-  displayResults(recipes);
 };
 
-main();
+main(recipes);

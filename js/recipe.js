@@ -9,7 +9,6 @@ class Recipe {
     this.ingredients = data.ingredients;
     this.ustensils = data.ustensils;
   }
-
   get ingredient() {
     this.ingredientee = [];
     this.ingredients.forEach((ingredient) => {
@@ -20,7 +19,7 @@ class Recipe {
 
   get recipeCard() {
     this.ingredient;
-    const descriptionAbregeeppp = this.description.slice(0, 150).concat('...');
+    const descriptionAbregeeppp = this.description.slice(0, 150).concat("...");
     return `
     <li class="recipe" title="Sélectionner la recette : ${this.name}">
         <div class="recipe-img-top"></div>

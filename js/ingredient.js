@@ -13,9 +13,11 @@ class Ingredient {
     }
     return `
         <li class="recipe-body_bot_ingredients_ingredient">
-          <span class="recipe-body_bot_ingredients_ingredient">${this.ingredient}:</span>
+          <span class="recipe-body_bot_ingredients_ingredient">${
+            this.ingredient
+          }:</span>
           <span class="recipe-body_bot_ingredients_ingredient_qt">
-            ${this.quantity || ''} ${this.unit || ''}
+            ${this.quantity || ""} ${this.unit || ""}
           </span>
         </li>
       `;
