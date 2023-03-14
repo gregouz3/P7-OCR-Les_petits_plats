@@ -1,6 +1,6 @@
 const filterRecipesWithPrincipaleSearchBar = (recipes) => {
-  const searchUser = document.getElementById("searchInput");
-  searchUser.addEventListener("input", (e) => {
+  const searchUserPrincipalSearchBar = document.getElementById("searchInput");
+  searchUserPrincipalSearchBar.addEventListener("input", (e) => {
     const element = e.target.value.toLowerCase();
     if (element.length >= 3) {
       document.getElementById("recipes").innerHTML = "";

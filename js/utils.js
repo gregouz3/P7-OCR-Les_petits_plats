@@ -1,5 +1,6 @@
 const error = (e) => {
   if (document.querySelector(".recipes").innerHTML === "") {
+    document.querySelector("#tags").innerHTML = "";
     document.querySelector(".messBlock").innerHTML = `
     <p class="messBlock messError mr-4" onclick="closeMess">Aucune recette ne correspond à votre critère… 
     vous pouvez chercher « tarte aux pommes », « poisson », etc...
@@ -7,6 +8,19 @@ const error = (e) => {
     `;
     e.target.value = "";
   }
+};
+
+const selectRecipe = () => {
+  const recips = document.querySelectorAll(".recipe");
+  recips.forEach((recipe) => {
+    recipe.addEventListener("click", function () {
+      console.log(
+        `Vous avez sélectionnez la recette suivante : ${
+          this.querySelector("h3").textContent
+        }`
+      );
+    });
+  });
 };
 
 const changeDisplayAccordion = () => {

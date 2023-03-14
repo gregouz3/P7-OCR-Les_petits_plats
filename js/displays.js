@@ -12,4 +12,5 @@ const displayRecipes = (recipes) => {
   displayIngredients(recipes);
   displayAppareils(recipes);
   displayUstensils(recipes);
+  selectRecipe();
 };
