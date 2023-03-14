@@ -6,7 +6,6 @@ const displayRecipe = (recipe) => {
 
 const displayRecipes = (recipes) => {
   document.getElementById("recipes").innerHTML = "";
-  document.querySelector(".tags").innerHTML = "";
   document.querySelector(".messBlock").innerHTML = "";
   recipes.forEach(displayRecipe);
   displayIngredients(recipes);
